@@ -1,0 +1,30 @@
+\section{Data and Evaluation Protocol}
+\label{sec:data}
+
+We use the INSTANCE Italian ML waveform dataset~\citep{michelini2021instance}:
+$120$\,s windows at $100$\,Hz with three components (E,N,Z), accessed via
+SeisBench~\citep{woollam2022seisbench}.
+Chronological train/val/test splits are event-disjoint.
+The external PhaseNet weight used for primary results is STEAD (not INSTANCE),
+to avoid training-data leakage from INSTANCE-pretrained weights; INSTANCE
+weights appear only in diagnostic experiments and are excluded from formal
+claims.
+
+\textbf{Evidence hierarchy.}
+\begin{itemize}
+\item \textbf{Stage~3 (main test):} deterministic event-disjoint test-only list
+of $10{,}000$ traces / $1{,}482$ events.
+\item \textbf{Stage~2 (development):} mixed fixed-eval list containing
+validation and test events; used only for $\lambda$ / shrinkage selection and
+exploratory analysis---never as an independent test set.
+\item \textbf{Stage~4 (auxiliary):} all remaining unused chronological test
+events after Stage~3 ($9$ events / $108$ traces). Underpowered; directional
+audit only.
+\end{itemize}
+
+\textbf{Metrics.}
+We report Precision/Recall/F1 at $\pm 0.1$ and $\pm 0.5$\,s, matched-timing
+errors on true positives, and end-to-end absolute errors on all labeled traces
+with a prediction (including wrong peaks).
+Miss and wrong-peak rates follow Stage~2 audit definitions.
+Significance uses event-level paired bootstrap (not i.i.d.\ traces).

@@ -1,0 +1,16 @@
+seed: 42
+max_events: 200
+max_traces_per_split: 64
+max_eval_traces: 64
+device: cpu
+phasenet_weight: stead
+pick_threshold: 0.3
+grid_size: 0.2
+min_history: 5
+prior_mode: catalog_assisted
+min_sigma_s: 0.05
+max_sigma_s: 1.0
+protocol: frozen
+zarr_chunk_traces: 32
+fusion: both
+alpha_grid: [0.0, 0.25, 0.5, 0.75, 1.0]

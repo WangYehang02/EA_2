@@ -1,0 +1,13 @@
+{
+  "amendment_id": "stage10_v4_posthoc_epoch_noninferiority",
+  "recorded_after_v4_pilot_end": "2026-09-02T05:20:45+08:00",
+  "amendment_utc": "2026-09-02T05:21:00+08:00",
+  "applies_to": "future unstarted experiments only",
+  "does_not_apply_to": "dkpn_clean_v4_seed42_fp32 original PILOT.FAILED gate",
+  "not_v4_preregistered_threshold": true,
+  "original_v4_gate": "epoch2 >= epoch1 (strict)",
+  "future_gate": "epoch2 vs epoch1 no material F1 degradation: paired event bootstrap, F1 non-inferiority margin 0.01, require point>=-0.01 and 95% CI lower bound > -0.01",
+  "margin": 0.01,
+  "margin_source": "checkpoint_policy.MIN_DELTA_F1 and scripts/run_stage10_v3_full_dev_stop_gate.py A_vs_waveform_only_delta_f1_0.5_ge_0.01",
+  "not_chosen_from_v4_observed_delta": -0.006
+}

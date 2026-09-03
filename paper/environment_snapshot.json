@@ -1,0 +1,8 @@
+{
+  "python": "3.11.15",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.43",
+  "numpy": "2.4.6",
+  "pandas": "3.0.5",
+  "matplotlib": "3.11.1",
+  "conda_env": "\n# conda environments:\n#\n# * -> active\n# + -> frozen\nbase                     /home/yehang/miniconda3\nPS                   *   /home/yehang/miniconda3/envs/PS\ndefog                    /home/yehang/miniconda3/envs/defog\nfmgad                    /home/yehang/miniconda3/envs/fmgad\nlab1qwen                 /home/yehang/miniconda3/envs/lab1qwen\nmol1                     /home/yehang/miniconda3/envs/mol1\nmol2                     /home/yehang/miniconda3/envs/mol2\nsd_eagle                 /home/yehang/miniconda3/envs/sd_eagle\n\n"
+}

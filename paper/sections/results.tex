@@ -1,0 +1,94 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Main test (Stage~3)}
+Table~\ref{tab:main} reports Stage~3 test-only S-phase metrics (10{,}000 traces /
+1{,}482 events).
+Fixed re-ranking improves F1@$0.5$ from $0.695$ to $0.718$ and reduces e2e P95
+from $2.15$\,s to $1.11$\,s ($\approx 48\%$ relative P95 reduction; absolute
+values retained).
+F1@$0.1$ also rises ($0.462\rightarrow 0.477$), but the larger operational gain
+is in suppressing gross wrong-peak tails rather than claiming sub-sample-point
+timing refinement.
+
+\begin{table}[t]
+\centering
+\caption{Stage~3 event-disjoint test-only S-phase results (frozen STEAD PhaseNet).}
+\label{tab:main}
+\input{tables/table_main_stage3.tex}
+\end{table}
+
+Event-level bootstrap of fixed versus PhaseNet (frozen predictions, seed~$42$,
+$n{=}2000$) yields $\Delta$F1@$0.5{=}0.0225$ with 95\% CI $[0.019,\,0.026]$ and
+$\Delta$P95 with CI entirely below zero
+(Table~\ref{tab:boot}; \texttt{bootstrap\_fixed\_vs\_phasenet.json}).
+Learned gate versus fixed has $\Delta$F1@$0.5$ CI $[-0.004,\,-0.0004]$ (gate
+slightly worse).
+
+\begin{table}[t]
+\centering
+\caption{Stage~3 event-level paired bootstrap: fixed re-ranking minus PhaseNet.}
+\label{tab:boot}
+\input{tables/table_bootstrap_stage3.tex}
+\end{table}
+
+Figure~\ref{fig:cdf} shows error CDFs; fixed dominates the long tail.
+Figure~\ref{fig:f1tol} reports F1 at $0.1$\,s and $0.5$\,s.
+Figure~\ref{fig:subset} shows Stage~2 development hard-subset gains (motivational;
+not a test claim).
+Figures~\ref{fig:caseok}--\ref{fig:casebad} illustrate a wrong-peak repair and a
+failure mode from frozen Stage~3 case dumps.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.72\linewidth]{fig_error_cdf_stage3}
+\caption{Stage~3 S-phase absolute-error CDF: PhaseNet vs fixed re-ranking.}
+\label{fig:cdf}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.72\linewidth]{fig_f1_tolerance_stage3}
+\caption{Stage~3 S F1 versus tolerance.}
+\label{fig:f1tol}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{fig_subset_gains_stage2_dev}
+\caption{Stage~2 development hard-subset $\Delta$F1@$0.5$ (mixed fixed-eval; not main test).}
+\label{fig:subset}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{fig_case_success_wrongpeak_fix}
+\caption{Qualitative success: PhaseNet wrong peak corrected by fixed re-ranking (frozen case dump).}
+\label{fig:caseok}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{fig_case_failure_no_candidate}
+\caption{Qualitative failure: no correct candidate in top-$K$ (oracle-candidate gap).}
+\label{fig:casebad}
+\end{figure}
+
+\subsection{Auxiliary unused-event audit (Stage~4)}
+\label{sec:stage4}
+On the nine previously unused test events (108 traces), fixed re-ranking moves
+S F1@$0.5$ from $0.678$ to $0.690$ and P95 from $1.03$\,s to $0.73$\,s, with the
+same direction for ETHZ/SCEDC weights and exact PhaseNet match under
+history-unavailable scoring.
+However, event-level bootstrap CIs include zero; the audit is underpowered and
+is reported only as a directional unused-event check
+(\emph{directionally replicated in an underpowered unused-event audit}), not as
+independent significance validation.
+
+\subsection{Ablations and ceilings}
+Oracle candidate-$K{=}5$ reaches F1@$0.5{=}0.890$, while oracle PN/fixed selector
+only $0.720$, indicating that (i)~candidate coverage still limits performance and
+(ii)~a binary gate between PhaseNet and fixed has little headroom---consistent
+with the learned gate collapsing toward PhaseNet.
+Shuffled/biased history controls degrade relative to correct history on
+development and Stage~4 audits.

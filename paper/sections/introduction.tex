@@ -1,0 +1,40 @@
+\section{Introduction}
+\label{sec:intro}
+
+Deep learning phase pickers such as PhaseNet~\citep{zhu2019phasenet} and
+Earthquake Transformer~\citep{mousavi2020eqt} have substantially improved
+automatic arrival-time estimation.
+When a pick is matched to a manual label within a tight window, residual timing
+errors are often only tens of milliseconds.
+In operational end-to-end evaluations, however, absolute-error distributions
+exhibit heavy tails: misses and wrong peaks---especially for S waves with
+multiple probability modes---dominate mean absolute error and high
+percentiles~\citep{munchmeyer2022benchmark}.
+
+Most waveform pickers treat each trace independently and do not explicitly use
+historical travel-time residuals along repeated source-region--station paths.
+Catalog-assisted settings, where an approximate origin time and location are
+available (e.g., association after detection, or offline catalog refinement),
+provide precisely the context needed to score candidate peaks against a path
+prior without retraining the waveform network.
+
+This paper addresses catalog-assisted \emph{S-phase candidate re-picking /
+refinement}.
+Our contributions are:
+\begin{enumerate}
+\item We diagnose that end-to-end S-phase long tails on INSTANCE are driven by
+wrong-peak/miss behavior rather than matched micro-timing.
+\item We introduce a deterministic re-ranking score combining a distance MLP
+travel-time baseline, median path residuals with shrinkage, and PhaseNet
+candidate probabilities.
+\item On an event-disjoint Stage~3 test-only set of 10{,}000 traces we obtain
+statistically significant S F1@$0.5$ and e2e-P95 improvements versus STEAD
+PhaseNet under event-level paired bootstrap.
+\item We document identity fallback without history, cross-weight transfer
+(STEAD/ETHZ/SCEDC), negative controls, and an underpowered unused-event Stage~4
+audit; a learned gate does not beat the fixed score, so we do not escalate to
+GNNs.
+\end{enumerate}
+
+We do \emph{not} claim blind phase-picking SOTA, continuous detection
+capability, or that Stage~4 alone provides significant confirmation.

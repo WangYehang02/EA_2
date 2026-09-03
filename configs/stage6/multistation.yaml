@@ -1,0 +1,5 @@
+# Placeholder — Phase D
+enabled_only_if_ranker_passes: true
+lambda_grid: [0.1, 0.5, 1.0]
+min_stations: 3
+out_dir: artifacts/results/stage6/multistation

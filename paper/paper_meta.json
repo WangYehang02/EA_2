@@ -1,0 +1,14 @@
+{
+  "title": "Historical Path-Residual Guided Candidate Re-ranking for Catalog-Assisted S-Phase Repicking",
+  "alt_titles": [
+    "Catalog-Assisted Re-ranking of PhaseNet S-Wave Candidates Using Historical Path Residuals",
+    "Reducing S-Phase Wrong-Peak Errors with Shrinkage-Regularized Path Residuals"
+  ],
+  "n_ledger_entries": 19,
+  "stage3_fixed_vs_pn_significant_f1_05": true,
+  "stage4_underpowered": true,
+  "main_method": "fixed_catalog_rescore",
+  "learned_gate_is_main": false,
+  "continue_gnn": false,
+  "sota_claim_allowed": false
+}

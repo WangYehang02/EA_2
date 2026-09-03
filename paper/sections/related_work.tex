@@ -1,0 +1,39 @@
+\section{Related Work}
+\label{sec:related}
+
+\textbf{Deep phase picking.}
+PhaseNet~\citep{zhu2019phasenet} predicts sample-wise P/S probabilities with a
+U-Net-style architecture.
+EQTransformer~\citep{mousavi2020eqt} jointly detects events and picks phases.
+Generalized phase detection~\citep{ross2018gpd} and related CNN pickers
+similarly map waveforms to phase scores.
+Systematic benchmarks~\citep{munchmeyer2022benchmark,woollam2022seisbench}
+show that absolute performance depends strongly on dataset shift and evaluation
+protocol.
+
+\textbf{Travel times and path corrections.}
+Classical seismology uses distance-dependent travel-time tables and station or
+path corrections estimated from residuals.
+Our distance MLP plays the role of a smooth baseline; historical median
+residuals supply a nonparametric path correction regularized by shrinkage.
+
+\textbf{Catalog-assisted and historical picking.}
+We deliberately restrict scope to settings with event context.
+Methods that discover events from continuous waveforms (detection/association)
+are complementary and out of scope.
+
+\textbf{Candidate re-ranking.}
+Peak finding on probability curves yields multiple S candidates; re-ranking
+with external constraints is a lightweight alternative to fine-tuning the
+picker.
+Our ablations show that a fixed score already captures most of the gain
+available from switching between PhaseNet and a history-informed pick among
+existing candidates (oracle selector ceiling $\approx 0.720$ F1@$0.5$), while
+oracle candidate selection ($0.890$) indicates remaining coverage limits.
+
+\textbf{Uncertainty-aware picking.}
+Some pickers expose probability curves or calibrated scores; we treat PhaseNet
+probabilities as candidate features inside an explicit score rather than
+claiming a new uncertainty model.
+Additional uncertainty-calibration literature should be inserted only after
+manual DOI verification (placeholder avoided here).

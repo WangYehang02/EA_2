@@ -1,0 +1,70 @@
+\section{Method}
+\label{sec:method}
+
+Figure~\ref{fig:flow} summarizes the pipeline.
+PhaseNet remains frozen; only candidate scores are adjusted.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig_method_flowchart}
+\caption{Catalog-assisted S-phase candidate re-ranking with a frozen PhaseNet.}
+\label{fig:flow}
+\end{figure}
+
+\subsection{PhaseNet candidates}
+Let $p_S(t)$ be the S-phase probability on the waveform grid after UTC remapping
+of SeisBench \texttt{annotate()}.
+We extract up to $K{=}5$ peaks with minimum distance $50$ samples, prominence
+$0.05$, and height $0.1$; if none pass, the global argmax is kept as a fallback
+peak.
+Candidate $j$ has sample index $s_j$, probability $\pi_j$, and prominence
+$\rho_j$.
+
+\subsection{Distance baseline and path residual}
+A distance MLP trained on chronological train predicts baseline travel times
+$\tau^{\mathrm{base}}_{P/S}$.
+Path keys are \emph{directed} source-region$\rightarrow$station identifiers
+\texttt{region\_i:region\_j|depth\_bin|station\_id} with source region
+$\lfloor\mathrm{lat}/\Delta\rfloor,\lfloor\mathrm{lon}/\Delta\rfloor$ and grid
+$\Delta{=}0.2^\circ$ (default), depth bins $\{0$--$5,5$--$10,10$--$20,20$--$40,40+\}$\,km;
+keys are not undirected station pairs.
+For past \emph{training} events on the matched path (with spatial/depth fallback
+levels in \texttt{TemporalHistoryStore}), residuals
+$r = \tau^{\mathrm{obs}}-\tau^{\mathrm{base}}$ are aggregated as median and MAD.
+Path residual use requires history count $n\ge 5$ and residual-P MAD
+$\le 1.0$\,s (\texttt{mad\_disable\_s}); otherwise
+\texttt{history\_available} is false and scoring falls back as below.
+
+\subsection{Shrinkage}
+With shrinkage parameter $k{=}50$ selected on Stage~2 train residual MAE,
+\begin{equation}
+w=\frac{n}{n+k},\qquad
+\tilde r = w\, r^{\mathrm{path}} + (1-w)\, r^{\mathrm{global}}.
+\end{equation}
+Predicted travel time is $\hat\tau = \tau^{\mathrm{base}}+\tilde r$, converted to
+an expected sample $\hat s$ using origin time and trace start time.
+Uncertainty uses $\sigma = \mathrm{clip}(1.4826\cdot\mathrm{MAD},\,0.05,\,1.0)$\,s.
+
+\subsection{Fixed candidate score}
+History consistency is a Gaussian kernel in sample space,
+\begin{equation}
+h_j=\exp\!\Big(-\tfrac12\big((s_j-\hat s)/\sigma_{\mathrm{samp}}\big)^2\Big).
+\end{equation}
+The deterministic score (implementation in \texttt{candidate\_rescorer.py}) is
+\begin{equation}
+\mathrm{score}_j=
+\lambda_w\log(\pi_j+\varepsilon)
++\lambda_h\log(h_j+\varepsilon)
++\lambda_{\rho}\,\frac{\rho_j}{\max_{j'}\rho_{j'}},
+\end{equation}
+with frozen S-wave weights $(\lambda_w,\lambda_h,\lambda_{\rho})=(0.5,\,2.0,\,0.0)$
+chosen on Stage~2 validation (not Stage~3/4 test).
+If history is unavailable, $\lambda_h$ is set to $0$ (identity fallback toward
+probability ranking).
+The pick is $\arg\max_j \mathrm{score}_j$.
+P picks remain PhaseNet for the S-focused Stage~3/4 comparisons.
+
+\subsection{Learned gate (ablation only)}
+A scalar gate mixing PhaseNet and history log-softmax rankings was trained in
+Stage~3 but did not beat fixed re-ranking on the test-only set and is not the
+recommended main method.

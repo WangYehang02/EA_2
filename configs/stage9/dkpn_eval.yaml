@@ -1,0 +1,8 @@
+model: DKPN
+repo: /home/yehang/EARTHQUAKE/baseline/DKPN
+role: diagnostic_only_possible_leakage
+enter_main_table: false
+official_S_threshold: 0.2
+component_order: ZNE
+sota_claim_allowed: false
+forbid_confirm_main_eval: true

@@ -1,0 +1,4 @@
+set,n_traces,n_events,role,pure_chronological_test
+Stage-3 test-only,10000,1482,main_test,True
+Original fixed eval (Stage1.5/2),10000,1399,development_mixed,False
+Stage-4 unused holdout,108,9,auxiliary_underpowered,True

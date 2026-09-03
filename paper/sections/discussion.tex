@@ -1,0 +1,16 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The Stage~3 gain pattern---clearer at F1@$0.5$ and e2e P95 than at ultra-tight
+matched timing---supports interpreting the method as wrong-peak repair under
+catalog constraints.
+The high oracle-candidate ceiling shows many labels already lie near some
+PhaseNet peak; re-ranking exploits that coverage.
+The low oracle-selector ceiling and near-constant learned gate explain why a
+simple fixed score is preferable to a learned switch and why we stop before
+GNNs: additional model capacity did not beat a transparent deterministic rule
+on the main test set.
+
+Catalog assistance is both a strength (usable path priors) and a boundary:
+without event context the method must identity-fallback and cannot replace
+continuous detection/association.

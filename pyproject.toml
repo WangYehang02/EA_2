@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earthquake"
+version = "0.1.0"
+description = "PhaseNet + historical path prior fusion for P/S phase picking on INSTANCE"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "torch",
+  "seisbench",
+  "h5py",
+  "pandas",
+  "pyarrow",
+  "numpy",
+  "scipy",
+  "scikit-learn",
+  "zarr",
+  "PyYAML",
+  "python-dotenv",
+  "tqdm",
+  "matplotlib",
+  "seaborn",
+  "tensorboard",
+  "pytest",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

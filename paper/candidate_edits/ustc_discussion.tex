@@ -1,0 +1,26 @@
+% Candidate Discussion paragraphs (Stage 5.1). DO NOT auto-merge into paper/sections/discussion.tex.
+% Decisions: adopt_with_caveat for complementarity + diminishing returns; distance note only if frozen/val evidence used carefully.
+
+\paragraph{Complementarity with waveform adaptation.}
+Regional transfer learning (e.g., USTC-Pickers) improves pickers by changing
+network weights for a geographic domain~\citep{zhu2023ustcpickers}.
+Our catalog-assisted re-ranking instead keeps PhaseNet fixed and injects a
+train-only path-residual prior at the candidate-peak level.
+These approaches target different failure modes and could be combined, but we
+have not validated joint performance and therefore do not claim additive gains.
+
+\paragraph{Diminishing returns of finer customization.}
+USTC-Pickers discuss a trade-off between customization granularity, marginal
+accuracy gains, and operational complexity.
+We use that discussion only as qualitative motivation for preferring a simple
+fixed score over heavier model stacks in our setting; it does \emph{not}
+constitute evidence that graph neural networks are ineffective in general.
+
+\paragraph{Distance-related S difficulty (exploratory).}
+On our development/validation analyses, S travel-time and picking difficulty
+tend to increase with epicentral distance, consistent in \emph{direction} with
+reports on DiTing-based regional pickers.
+This is not a cross-paper numerical claim and is not used to retune Stage~3/4
+methods.
+
+% FORBIDDEN: claiming GNN invalidity; claiming Stage-3 distance bins newly mined for method choice.

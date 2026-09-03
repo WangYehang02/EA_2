@@ -1,0 +1,22 @@
+# Full finetune config — do NOT auto-start in stage 1.5
+seed: 0
+init_weight: stead
+device: cuda
+n_train_traces: -1  # all chronological train traces
+n_val_traces: -1
+n_train_noise: -1
+epochs: 30
+batch_size: 32
+lr: 1.0e-4
+weight_decay: 1.0e-4
+grad_clip: 1.0
+scheduler: cosine
+early_stopping_patience: 5
+mixed_precision: true
+pick_threshold: 0.3
+sigma_s: 0.1
+tensorboard: true
+checkpointing:
+  save_best: true
+  save_last: true
+note: "Prepared for later; stage 1.5 only runs debug finetune."

@@ -1,0 +1,9 @@
+{
+  "candidate_K": 5,
+  "shrinkage_k": 50.0,
+  "lambda_s_wave": 0.5,
+  "lambda_s_history": 2.0,
+  "lambda_s_prominence": 0.0,
+  "lambda_selected_on": "Stage-2 chronological validation (not Stage-3/4 test)",
+  "phasenet_weight": "stead"
+}

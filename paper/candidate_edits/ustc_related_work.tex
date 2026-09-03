@@ -1,0 +1,23 @@
+% Candidate Related Work paragraph (Stage 5.1). DO NOT auto-merge into paper/sections/related_work.tex.
+% Decision: adopt_with_caveat (regional domain shift + complementarity; no numerical comparison).
+
+\textbf{Regional domain shift and regionalized pickers.}
+Deep phase pickers trained in one region often degrade under changes in
+subsurface structure, source characteristics, site response, noise, and
+instrumentation~\citep{zhu2023ustcpickers}.
+USTC-Pickers address this by training a China-wide PhaseNet-style model on
+DiTing and then fine-tuning regional/provincial pickers, reporting that finer
+customization yields diminishing returns relative to deployment complexity.
+That line of work adapts \emph{waveform-network parameters}.
+In contrast, the present paper freezes an external PhaseNet and re-ranks
+existing S candidates using train-only historical path residuals.
+The two strategies are complementary in principle, but our experiments do not
+evaluate a joint system.
+Importantly, DiTing evaluations at $\pm 0.6$\,s / $50$\,Hz are not numerically
+comparable to our INSTANCE metrics at $\pm 0.1$/$0.5$\,s / $100$\,Hz.
+
+% FORBIDDEN wording (do not use):
+% - "we outperform USTC-Pickers" / "USTC-Pickers outperform us"
+% - "F1 gains are directly comparable"
+% - "regional models prove path residuals are causal"
+% - "10k samples is a universal training recipe"

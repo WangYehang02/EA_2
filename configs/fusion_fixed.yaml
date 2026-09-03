@@ -1,0 +1,28 @@
+seed: 42
+max_events: 10000
+# Stage 2: always use the full fixed eval event set (-1 = all)
+max_eval_traces: -1
+device: cuda
+phasenet_weight: stead
+pick_threshold: 0.3
+grid_size: null
+min_history: 5
+prior_mode: catalog_assisted
+min_sigma_s: 0.05
+max_sigma_s: 1.0
+mad_disable_s: 1.0
+protocol: frozen
+fusion: both
+alpha_grid: [0.0, 0.25, 0.5, 0.75, 1.0]
+
+# Stage 2 residual / candidate re-scoring
+candidate_k: 5
+min_peak_distance: 50
+min_peak_prominence: 0.05
+min_peak_probability: 0.1
+shrinkage_k_grid: [1, 2, 5, 10, 20, 50]
+lambda_wave_grid: [0.5, 1.0, 2.0, 4.0]
+lambda_history_grid: [0.0, 0.1, 0.25, 0.5, 1.0, 2.0]
+lambda_prominence_grid: [0.0, 0.1, 0.25, 0.5]
+n_bootstrap: 2000
+bias_seconds: 5.0

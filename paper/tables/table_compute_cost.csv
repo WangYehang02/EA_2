@@ -1,0 +1,19 @@
+item,value
+history_index_disk_bytes,7670320
+travel_time_baseline_bytes,0
+distance_mlp_approx_params,-1
+fixed_rescore_trainable_params,0
+candidate_k,5
+shrinkage_k,50
+gpu,NVIDIA GeForce RTX 4090
+cuda_available,1
+platform,Linux-7.0.0-29-generic-x86_64-with-glibc2.43
+cpu,x86_64
+phasenet_stead_timing_sec_per_trace,0.16705990058404427
+phasenet_stead_timing_n,108
+phasenet_ethz_timing_sec_per_trace,0.1571018276391206
+phasenet_ethz_timing_n,108
+phasenet_scedc_timing_sec_per_trace,0.15838427896852847
+phasenet_scedc_timing_n,108
+holdout_n_traces,108
+holdout_n_events,9

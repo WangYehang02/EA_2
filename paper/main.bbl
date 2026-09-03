@@ -1,0 +1,66 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Michelini et~al.(2021)Michelini, Cianetti, Gaviano, Giunchi,
+  Jozinovi{\'c}, and Lauciani]{michelini2021instance}
+Alberto Michelini, Spina Cianetti, Sonja Gaviano, Carlo Giunchi, Dario
+  Jozinovi{\'c}, and Valentino Lauciani.
+\newblock {INSTANCE} -- the {Italian} seismic dataset for machine learning.
+\newblock \emph{Earth System Science Data}, 13\penalty0 (12):\penalty0
+  5509--5544, 2021.
+\newblock \doi{10.5194/essd-13-5509-2021}.
+
+\bibitem[Mousavi et~al.(2020)Mousavi, Ellsworth, Zhu, Chuang, and
+  Beroza]{mousavi2020eqt}
+S.~Mostafa Mousavi, William~L. Ellsworth, Weiqiang Zhu, Lindsay~Y. Chuang, and
+  Gregory~C. Beroza.
+\newblock Earthquake transformer---an attentive deep-learning model for
+  simultaneous earthquake detection and phase picking.
+\newblock \emph{Nature Communications}, 11:\penalty0 3952, 2020.
+\newblock \doi{10.1038/s41467-020-17591-w}.
+
+\bibitem[M{\"u}nchmeyer et~al.(2022)M{\"u}nchmeyer, Woollam, Rietbrock,
+  Tilmann, Lange, Bornstein, Diehl, Giunchi, Haslinger, Jozinovi{\'c},
+  Michelini, Saul, and Soto]{munchmeyer2022benchmark}
+Jannes M{\"u}nchmeyer, Jack Woollam, Andreas Rietbrock, Frederik Tilmann,
+  Dietrich Lange, Thomas Bornstein, Tobias Diehl, Carlo Giunchi, Florian
+  Haslinger, Dario Jozinovi{\'c}, Alberto Michelini, Joachim Saul, and Hugo
+  Soto.
+\newblock Which picker fits my data? {A} quantitative evaluation of deep
+  learning based seismic pickers.
+\newblock \emph{Journal of Geophysical Research: Solid Earth}, 127\penalty0
+  (1):\penalty0 e2021JB023499, 2022.
+\newblock \doi{10.1029/2021JB023499}.
+
+\bibitem[Ross et~al.(2018)Ross, Meier, Hauksson, and Heaton]{ross2018gpd}
+Zachary~E. Ross, Men-Andrin Meier, Egill Hauksson, and Thomas~H. Heaton.
+\newblock Generalized seismic phase detection with deep learning.
+\newblock \emph{Bulletin of the Seismological Society of America}, 108\penalty0
+  (5A):\penalty0 2894--2901, 2018.
+\newblock \doi{10.1785/0120180080}.
+
+\bibitem[Woollam et~al.(2022)Woollam, M{\"u}nchmeyer, Tilmann, Rietbrock,
+  Lange, Bornstein, Diehl, Giunchi, Haslinger, Jozinovi{\'c}, Michelini, Saul,
+  and Soto]{woollam2022seisbench}
+Jack Woollam, Jannes M{\"u}nchmeyer, Frederik Tilmann, Andreas Rietbrock,
+  Dietrich Lange, Thomas Bornstein, Tobias Diehl, Carlo Giunchi, Florian
+  Haslinger, Dario Jozinovi{\'c}, Alberto Michelini, Joachim Saul, and Hugo
+  Soto.
+\newblock {SeisBench}---{A} toolbox for machine learning in seismology.
+\newblock \emph{Seismological Research Letters}, 93\penalty0 (3):\penalty0
+  1695--1709, 2022.
+\newblock \doi{10.1785/0220210324}.
+
+\bibitem[Zhu and Beroza(2019)]{zhu2019phasenet}
+Weiqiang Zhu and Gregory~C Beroza.
+\newblock {PhaseNet}: a deep-neural-network-based seismic arrival-time picking
+  method.
+\newblock \emph{Geophysical Journal International}, 216\penalty0 (1):\penalty0
+  261--273, 2019.
+\newblock \doi{10.1093/gji/ggy423}.
+
+\end{thebibliography}

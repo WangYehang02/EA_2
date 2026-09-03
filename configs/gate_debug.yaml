@@ -1,0 +1,52 @@
+seed: 42
+mode: catalog  # catalog | blind_s
+device: cuda
+phasenet_weight: stead
+pick_threshold: 0.3
+
+# candidate K
+candidate_k: 5
+candidate_k_grid: [1, 3, 5, 10]
+min_peak_distance: 50
+min_peak_prominence: 0.05
+min_peak_probability: 0.1
+
+# dataset sizes (debug)
+n_train_traces: 2000
+n_val_traces: 1000
+n_test_traces: 1000
+max_traces_per_event: 5
+max_test_per_event: 8
+
+# history / residual
+shrinkage_k: 50
+min_history: 5
+mad_threshold: 1.0
+min_sigma_s: 0.05
+max_sigma_s: 1.0
+
+# model
+hidden_dim: 64
+dropout: 0.1
+init_gate: 0.8
+prominence_weight: 0.1
+
+# loss
+target_temperature: 0.2
+target_temperature_grid: [0.05, 0.1, 0.2, 0.5]
+lambda_pairwise: 0.2
+lambda_fallback: 0.5
+pairwise_margin: 0.5
+good_thresh_s: 0.5
+
+# train
+lr: 3.0e-4
+weight_decay: 1.0e-4
+batch_size: 128
+max_epochs: 20
+early_stopping_patience: 5
+grad_clip: 1.0
+corrupt_prob: 0.3
+
+# paths
+test_list: artifacts/diagnostics/fixed_eval_test_only_traces.txt

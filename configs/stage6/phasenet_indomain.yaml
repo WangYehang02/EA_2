@@ -1,0 +1,39 @@
+# Stage 6 Phase A — in-domain PhaseNet (ID-A default)
+variant: ID-A
+seed: 42
+init_weight: stead
+device: cuda:1
+# data
+picker_train_list: artifacts/results/stage6/splits/stage6_picker_train_traces.txt
+dev_list: artifacts/results/stage6/splits/stage6_dev_traces.txt
+use_all_picker_train_traces: true
+noise_ratio: 0.2
+# optimization
+epochs: 50
+early_stopping_patience: 8
+batch_size: 32
+lr: 1.0e-4
+weight_decay: 1.0e-4
+grad_clip: 1.0
+amp: true
+warmup_epochs: 2
+cosine_scheduler: true
+# BN / checkpoint
+bn_policy: eval_frozen_running_stats
+checkpoint_metric: s_f1@0.5
+annotate_eval_every_epoch: true
+annotate_eval_max_traces: 800
+final_annotate_full_dev: true
+# labels
+sigma_s: 0.1
+label_order: PSN  # must match STEAD PhaseNet
+# aug
+aug_noise_std: 0.02
+aug_channel_dropout_prob: 0.05
+aug_polarity_flip_prob: 0.1
+aug_amp_scale_min: 0.5
+aug_amp_scale_max: 1.5
+# outputs
+out_dir: artifacts/models/stage6/phasenet_ida_seed42
+refuse_instance_pretrained: true
+smoke: false

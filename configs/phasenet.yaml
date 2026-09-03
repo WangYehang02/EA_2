@@ -1,0 +1,7 @@
+seed: 42
+max_events: 10000
+device: cuda
+phasenet_weight: stead
+pick_threshold: 0.3
+protocol: frozen
+zarr_chunk_traces: 128

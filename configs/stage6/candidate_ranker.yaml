@@ -1,0 +1,8 @@
+# Placeholder — Phase C
+k: 5
+max_params: 250000
+seeds: [42, 123, 2026]
+dev_only_tuning: true
+forbid_human_arrival_features: true
+oof_folds: 3
+out_dir: artifacts/models/stage6/candidate_ranker

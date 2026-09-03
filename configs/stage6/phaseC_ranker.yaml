@@ -1,0 +1,44 @@
+# Stage 6 Phase C — Union candidate ranker
+candidate_source: UNION_STEAD5_IDA5
+candidate_k_max: 10
+stead_k: 5
+ida_k: 5
+dedup_s: 0.05
+schema_version: stage6_phaseC_union_stead5_ida5_v1
+
+history:
+  artifact_dir: artifacts/models/stage6/history_picker_train
+  shrinkage_k: 50.0
+  lambdas_s: {lw: 0.5, lh: 2.0, lp: 0.0}
+  forbid_stage2_3_history: true
+
+training:
+  max_epochs: 50
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 8
+  seeds: [42, 123, 2026]
+  beta_grid: [0.0, 0.2]
+  gamma_grid: [0.5, 1.0]
+  hard_boost: true
+  checkpoint_metric: s_f1@0.5
+  tie_break_f1_01_delta: 0.002
+
+models:
+  R1: {hidden: 32, features: R1}
+  R2: {hidden: 64, features: R2}
+  R3: {hidden: 96, features: R2, max_params: 250000}
+
+paths:
+  phaseB_dev_stead: artifacts/cache/stage6/phaseB/stead_top10/stead_top10.parquet
+  phaseB_dev_ida: artifacts/cache/stage6/phaseB/ida_top10/ida_top10.parquet
+  ranker_train_stead: artifacts/cache/stage6/phaseC/ranker_train_stead_top10/stead_top10.parquet
+  ranker_train_ida: artifacts/cache/stage6/phaseC/ranker_train_ida_top10/ida_top10.parquet
+  out_models: artifacts/models/stage6/ranker
+  out_results: artifacts/results/stage6/phaseC
+
+forbid_confirm: true
+forbid_phasenet_train: true
+forbid_multistation: true
+forbid_offset: true

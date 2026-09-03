@@ -1,0 +1,21 @@
+seed: 42
+max_events: 10000
+device: cpu
+phasenet_weight: stead
+pick_threshold: 0.3
+grid_size: null
+min_history: 5
+prior_mode: catalog_assisted
+min_sigma_s: 0.05
+max_sigma_s: 1.0
+protocol: frozen
+init_gate: 0.9
+loss_weights:
+  final_phase: 1.0
+  phasenet_auxiliary: 0.3
+  arrival_smooth_l1: 0.1
+  sparse_history_gate: 0.02
+lr: 1.0e-3
+epochs: 5
+batch_size: 32
+hidden: 64

@@ -1,0 +1,13 @@
+% Candidate Limitations additions (Stage 5.1). DO NOT auto-merge into paper/sections/limitations.tex.
+
+\item We do not provide a leakage-free, full-scale INSTANCE in-domain PhaseNet
+trained under the same protocol as our STEAD baseline; existing finetuning
+artifacts are debug-scale and did not beat STEAD under annotate evaluation.
+A formal in-domain picker baseline remains a reviewer-facing gap, orthogonal to
+catalog-assisted re-ranking.
+\item Metrics and gains reported by regional Chinese pickers on DiTing
+($\pm 0.6$\,s, $50$\,Hz) are not comparable to our INSTANCE protocol and must
+not be used for ranking methods across papers.
+\item Hierarchical multi-scale path residuals were explored on validation only;
+even if promising on the development set, they are not part of the frozen
+Stage~3 main results.

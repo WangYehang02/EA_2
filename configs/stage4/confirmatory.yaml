@@ -1,0 +1,24 @@
+# Stage 4 confirmatory holdout — frozen parameters only (no search on holdout)
+seed: 42
+device: cuda
+phasenet_weight: stead
+transfer_weights: [stead, ethz, scedc]
+pick_threshold: 0.3
+candidate_k: 5
+min_peak_distance: 50
+min_peak_prominence: 0.05
+min_peak_probability: 0.1
+shrinkage_k: 50.0
+min_history: 5
+mad_disable_s: 1.0
+min_sigma_s: 0.05
+max_sigma_s: 1.0
+bias_seconds: 5.0
+# Locked Stage-2 S/P lambdas (selected on Stage-2 chronological VAL, not Stage-3/4 test)
+lambda_p: {lw: 0.5, lh: 0.5, lp: 0.1}
+lambda_s: {lw: 0.5, lh: 2.0, lp: 0.0}
+n_bootstrap: 5000
+holdout_target_traces: 20000
+holdout_target_events: 1000
+gate_seeds: [42, 123, 2026]
+flush_every: 50

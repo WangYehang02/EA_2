@@ -1,0 +1,11 @@
+\section{Conclusion}
+\label{sec:conc}
+
+We presented a catalog-assisted, history-residual-guided re-ranking of PhaseNet
+S-wave candidates that needs no picker fine-tuning.
+On the Stage~3 event-disjoint 10k test, fixed re-ranking significantly improves
+S F1@$0.5$ and reduces e2e P95 versus STEAD PhaseNet; a learned gate does not
+outperform it.
+Stage~4 provides only an underpowered directional audit.
+We recommend the fixed score as the main method and advise against claiming
+blind phase-picking SOTA or escalating to GNN complexity on this evidence.

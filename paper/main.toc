@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Related Work}{2}{section.2}%
+\contentsline {section}{\numberline {3}Data and Evaluation Protocol}{3}{section.3}%
+\contentsline {section}{\numberline {4}Method}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}PhaseNet candidates}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Distance baseline and path residual}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Shrinkage}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Fixed candidate score}{4}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Learned gate (ablation only)}{4}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Experiments}{4}{section.5}%
+\contentsline {section}{\numberline {6}Results}{5}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Main test (Stage~3)}{5}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Auxiliary unused-event audit (Stage~4)}{5}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Ablations and ceilings}{6}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Discussion}{6}{section.7}%
+\contentsline {section}{\numberline {8}Limitations}{6}{section.8}%
+\contentsline {section}{\numberline {9}Conclusion}{7}{section.9}%

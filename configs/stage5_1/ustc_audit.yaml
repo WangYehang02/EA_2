@@ -1,0 +1,17 @@
+# Stage 5.1 USTC-Pickers reference audit — no training, no Stage 3/4 test use
+seed: 42
+grid_fine: 0.1
+grid_coarse: 1.0
+grids_extra: [0.5, 0.2]
+shrinkage_k: 50.0
+min_history: 5
+n_boot_repeatability: 1000
+n_boot_hierarchical: 500
+protocol:
+  history: train_only
+  eval: validation_only
+  forbid_stage3_test: true
+  forbid_stage4: true
+  forbid_retune: true
+  forbid_gnn: true
+note: "Validation-only feasibility + literature audit; does not modify paper/main.tex"

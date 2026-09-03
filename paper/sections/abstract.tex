@@ -1,0 +1,20 @@
+Automatic seismic phase picking with deep neural networks achieves high
+matched-timing accuracy, yet end-to-end errors remain dominated by
+S-phase wrong-peak selections on multi-modal probability curves.
+We propose a \emph{catalog-assisted} S-phase candidate re-ranking method that
+leaves an external pretrained PhaseNet waveform model frozen and re-selects
+among its top-$K{=}5$ S candidates using a distance travel-time baseline,
+historical path residuals with Empirical-Bayes shrinkage ($k{=}50$), and a
+deterministic score mixing PhaseNet probability with history consistency.
+On an event-disjoint 10{,}000-trace Stage~3 chronological test set (INSTANCE),
+fixed re-ranking increases S-phase F1@$0.5$ from $0.695$ to $0.718$ and reduces
+end-to-end P95 absolute error from $2.15$\,s to $1.11$\,s relative to STEAD
+PhaseNet; event-level paired bootstrap confidence intervals exclude zero.
+A learned scalar gate does not outperform the fixed score and is reported only
+as an ablation.
+An auxiliary unused-event audit (9~events / 108~traces) shows the same
+direction across three external PhaseNet weight sets but is underpowered
+(bootstrap CIs include zero) and is not used as independent significance
+evidence.
+The method requires event/path context and falls back to PhaseNet when history
+is unavailable; it is not a blind continuous detector.

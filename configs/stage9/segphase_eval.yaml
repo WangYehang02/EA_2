@@ -1,0 +1,10 @@
+model: SegPhase-100Hz
+repo: /home/yehang/EARTHQUAKE/baseline/SegPhase
+checkpoint: model/model_100Hz.pth
+python: artifacts/venvs/segphase_eval/bin/python
+channel_order: UD_NS_EW  # INSTANCE ENZ -> Z,N,E
+window_schemes: [A, B]
+threshold_grid: [0.05, 0.1, 0.2, 0.3, 0.5, 0.7]
+official_peak_height: 0.1
+sota_claim_allowed: false
+post_confirm_external_comparator: true

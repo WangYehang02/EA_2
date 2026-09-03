@@ -1,0 +1,5 @@
+# Placeholder — Phase E
+enabled_only_if_f1_05_up_and_f1_01_limited: true
+window_s: 1.0
+max_offset_s: 0.5
+out_dir: artifacts/models/stage6/offset_refiner

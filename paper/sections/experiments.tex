@@ -1,0 +1,15 @@
+\section{Experiments}
+\label{sec:exp}
+
+All Stage~3/4 evaluations freeze PhaseNet STEAD inference, $K{=}5$,
+$k{=}50$, and Stage~2 validation $\lambda$'s.
+Comparators include: PhaseNet; distance-only prior; raw path medians;
+MLP+residual without/with shrinkage; fixed catalog rescore (main);
+learned gate (3 seeds); shuffled/biased history controls; history-unavailable
+identity; oracle PN$\leftrightarrow$fixed selector; oracle nearest candidate in
+top-$K$.
+Cross-weight transfer applies the same frozen rescore to ETHZ and SCEDC PhaseNet
+outputs on the Stage~4 holdout.
+Event-level paired bootstrap uses $2000$ replicates on Stage~3 and $5000$ on
+Stage~4.
+Hard subsets use Stage~2 predefined bins (no holdout retuning).

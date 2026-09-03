@@ -1,0 +1,19 @@
+\section{Limitations}
+\label{sec:lim}
+
+\begin{itemize}
+\item Requires catalog/event context (origin time and path features); not a
+blind continuous detector or associator.
+\item Depends on historical path coverage; sparse paths shrink toward the
+distance baseline / PhaseNet.
+\item Source-region path keys approximate spatial structure.
+\item Stage~4 retains only nine unused test events after Stage~3 consumption;
+it cannot alone support significant claims.
+\item Primary evidence is INSTANCE; we do not claim cross-dataset SOTA.
+\item Improvements target S-phase gross errors; P remains PhaseNet in the
+reported S-focused protocol.
+\item Catalog origin-time and location errors can bias expected arrivals.
+\item $\lambda$ and $k$ were selected on Stage~2 development validation; Stage~3
+test metrics were inspected when choosing fixed over gate as the main method,
+which we disclose.
+\end{itemize}
