@@ -1,0 +1,14 @@
+{
+  "reason": "waveform_cache_built_and_equivalence_passed",
+  "original_failure": "waveform_pairwise_no_go_incomplete_io",
+  "timestamp": "2026-09-04T11:04:17Z",
+  "cache_lock_hash": "ebe9371c0485f99cf1d07b782d533fa9c4bad1f8799293d714f3b9882a68a93a",
+  "split_lock_event_sha256": {
+    "train": "0085450c119eb1fc3c91a684588fc0eab0d633a3af737bcb95353413ad07425b",
+    "calibration": "b228c79908f449d83fc9e841eacfff22231fbb86c91bcd86cf262f378df579f9",
+    "heldout_eval": "d01dd17f2c347c443d3afac99d208ea0ef9db03892e34ce0ebb4e33b6904bc63"
+  },
+  "git_commit": "73dac37ac98faeb5be1af46e2a72606e6fc1c639",
+  "model_config_hash": "a325b9e98590222c2ac296534fbaff75b83118983ae2d664782be38a715e095b",
+  "original_FAILED_preserved": true
+}

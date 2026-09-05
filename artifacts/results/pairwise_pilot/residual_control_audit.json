@@ -1,0 +1,136 @@
+{
+  "baseline_frozen_npy": {
+    "f1@0.5": 0.8668048984454653,
+    "f1@0.1": 0.5539619442566988,
+    "detected_ae_p95": 1.66,
+    "miss_rate": 0.0
+  },
+  "definitions": {
+    "expected_s_sample": "attach_expected_s: pred_tau_s = base_tau_s + shrunk_residual_s (path history or global); mapped into waveform sample index using origin_time/trace_start_time/sr",
+    "T_hat_S": "base_tau_s from Stage-6 travel_time_baseline_mlp.pkl (picker_train-only fit)",
+    "old_normalized_residual": "(candidate_sample - expected_s_sample) / history_sigma_samples",
+    "new_absolute_residual": "tau_S(candidate) - base_tau_s  [seconds]",
+    "old_score": "0.5*log(p) + 2.0*log(exp(-0.5*z^2)+eps) when history_available",
+    "new_control_score": "fixed_score + 1.0 * exp(-0.5*(resid_s/0.5)^2)"
+  },
+  "table_vs_frozen_npy_agree": 1.0,
+  "geometry_comparison": {
+    "corr_resid_vs_expected_tau_vs_resid_vs_base": 0.9982925608728924,
+    "median_abs_diff_s": 0.32485772387585676,
+    "median_abs_expected_tau_minus_base_tau_s": 0.32485772387585676,
+    "history_available_frac": 0.8112219765616945
+  },
+  "variant_metrics": {
+    "fixed_rescore_table_argmax": {
+      "f1@0.5": 0.8668048984454653,
+      "f1@0.1": 0.5539619442566988,
+      "detected_ae_p95": 1.66,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.0,
+      "agree_with_frozen_npy": 1.0,
+      "agree_with_resid_control": 0.963433494094601
+    },
+    "resid_control_base_tau": {
+      "f1@0.5": 0.8737355801725224,
+      "f1@0.1": 0.5592773761928219,
+      "detected_ae_p95": 1.51,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.006930681727057131,
+      "agree_with_frozen_npy": 0.963433494094601,
+      "agree_with_resid_control": 1.0
+    },
+    "resid_add_vs_expected_tau": {
+      "f1@0.5": 0.8724754562221484,
+      "f1@0.1": 0.5576506707296117,
+      "detected_ae_p95": 1.52,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.005670557776683127,
+      "agree_with_frozen_npy": 0.9629981785481081,
+      "agree_with_resid_control": 0.9716815781334127
+    },
+    "lh4": {
+      "f1@0.5": 0.8678931873116974,
+      "f1@0.1": 0.555600105392185,
+      "detected_ae_p95": 1.66,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.0010882888662321344,
+      "agree_with_frozen_npy": 0.9561362308547077,
+      "agree_with_resid_control": 0.9506375081621665
+    },
+    "lh8": {
+      "f1@0.5": 0.8686263503373696,
+      "f1@0.1": 0.5567571282920738,
+      "detected_ae_p95": 1.66,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.0018214518919043021,
+      "agree_with_frozen_npy": 0.9229720596153185,
+      "agree_with_resid_control": 0.921849403732258
+    },
+    "lh16": {
+      "f1@0.5": 0.8690616658838624,
+      "f1@0.1": 0.5577194047632685,
+      "detected_ae_p95": 1.6539999999999417,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.0022567674383970893,
+      "agree_with_frozen_npy": 0.902443494896498,
+      "agree_with_resid_control": 0.9025236846024309
+    },
+    "fixedsig0p5_force_hist": {
+      "f1@0.5": 0.8753393742911802,
+      "f1@0.1": 0.560274019680845,
+      "detected_ae_p95": 1.44,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.008534475845714984,
+      "agree_with_frozen_npy": 0.8910565566540273,
+      "agree_with_resid_control": 0.9054563367051195
+    },
+    "base_tau_as_expected_sig0p5": {
+      "f1@0.5": 0.8791312018145784,
+      "f1@0.1": 0.5644438843893554,
+      "detected_ae_p95": 1.39,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.012326303369113112,
+      "agree_with_frozen_npy": 0.8555439725980319,
+      "agree_with_resid_control": 0.8813879692529756
+    },
+    "wave_plus_resid_base_only": {
+      "f1@0.5": 0.867950465673078,
+      "f1@0.1": 0.5530340348023324,
+      "detected_ae_p95": 1.79,
+      "miss_rate": 0.0,
+      "delta_f1@0.5": 0.0011455672276127205,
+      "agree_with_frozen_npy": 0.8900713688382803,
+      "agree_with_resid_control": 0.8949056625388061
+    }
+  },
+  "leakage": {
+    "phaseB_labels_used_for_T_hat_fit": false,
+    "T_hat_source": "residual_history_features.base_tau_s from picker_train-only MLP",
+    "expected_s_source": "attach_expected_s = map(base_tau_s + shrunk path residual) using picker_train history store",
+    "confirm_excluded_from_fit": true,
+    "history_fit_split": "picker_train_only_frozen_snapshot",
+    "baseline_sha256": "4295711d11c75d2ec71c9180e9eb9d02592c3bbe87fb9ca6432df443758a7d44",
+    "features_sha256": "da74662d09d4a83f641828d6677746fff5f613c0d072964067d8e234b1ccb7d9",
+    "held_out_labels_in_T_hat": false,
+    "dev_labels_in_score_forward": false,
+    "note": "Labels used only for metrics in this audit; scoring uses train-only base_tau/expected artifacts."
+  },
+  "interpretation": {
+    "resid_control_delta_f1@0.5": 0.006930681727057131,
+    "corr_resid_expected_vs_base": 0.9982925608728924,
+    "median_abs_diff_resid_expected_vs_base_s": 0.32485772387585676,
+    "median_abs_expected_tau_minus_base_tau_s": 0.32485772387585676,
+    "history_available_trace_frac": 0.8112219765616945,
+    "best_repro_variant": "base_tau_as_expected_sig0p5",
+    "best_repro_delta_f1@0.5": 0.012326303369113112,
+    "agree_resid_control_vs_wave_plus_resid": 0.8949056625388061,
+    "agree_resid_control_vs_base_as_expected": 0.8813879692529756,
+    "is_label_leakage": false,
+    "is_new_external_information": false,
+    "is_reweighting_or_kernel_change_of_train_only_geometry": true,
+    "PAIRWISE_TRAIN_BLOCKED": false,
+    "reason": "Both expected_s and base_tau_s derive from the same picker_train-only travel-time MLP / history store. resid_s control adds an absolute-time Gaussian on (tau_S - base_tau_s) with fixed σ=0.5s and λ=1 on top of fixed_score (which already includes lh=2 log-Gaussian vs expected_s with history_sigma). Gain is explained by kernel/centering/weight differences on the same train-only geometric prior — not by multi-station info and not by held-out labels. Treat as posthoc scalar control only; do not modify blind-confirmed Stage-6 method."
+  },
+  "method_lock_untouched": true,
+  "confirm_untouched": true
+}

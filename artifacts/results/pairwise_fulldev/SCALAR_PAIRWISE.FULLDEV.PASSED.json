@@ -1,0 +1,154 @@
+{
+  "gates": {
+    "1_vs_fixed": {
+      "delta_f1_ge_0.008": true,
+      "bootstrap_ci_gt_0": true,
+      "p95_not_worse_0.05": true,
+      "passed": true
+    },
+    "2_vs_resid": {
+      "delta_f1_ge_0.003": true,
+      "bootstrap_ci_gt_0": true,
+      "not_material_lt_0.001": false,
+      "verdict": "scalar_beats_resid",
+      "passed": true
+    },
+    "3_switch_quality": {
+      "switch_precision_ge_0.80": true,
+      "net_fixes_gt_0": true,
+      "passed": true
+    }
+  },
+  "passed": true,
+  "n_eval": 87293,
+  "n_events": 5341,
+  "fixed": {
+    "f1@0.1": 0.5539619442566988,
+    "f1@0.5": 0.8668048984454653,
+    "precision@0.1": 0.5539619442566988,
+    "recall@0.1": 0.5539619442566988,
+    "precision@0.5": 0.8668048984454653,
+    "recall@0.5": 0.8668048984454653,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.09,
+    "detected_ae_p95": 1.66,
+    "detected_ae_mae": 1.5356124775182431,
+    "frac_err_gt_1s": 0.07497737504725464,
+    "frac_err_gt_5s": 0.031858224599910646,
+    "frac_err_gt_10s": 0.02752798047953444,
+    "frac_err_gt_30s": 0.017962494128967957
+  },
+  "resid": {
+    "f1@0.1": 0.5590940854364038,
+    "f1@0.5": 0.8731971635755444,
+    "precision@0.1": 0.5590940854364038,
+    "recall@0.1": 0.5590940854364038,
+    "precision@0.5": 0.8731971635755444,
+    "recall@0.5": 0.8731971635755444,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.09,
+    "detected_ae_p95": 1.5239999999999418,
+    "detected_ae_mae": 1.44280159921185,
+    "frac_err_gt_1s": 0.07063567525460232,
+    "frac_err_gt_5s": 0.02961291283378965,
+    "frac_err_gt_10s": 0.025408681108450848,
+    "frac_err_gt_30s": 0.016908572279564226,
+    "delta_f1@0.5_vs_fixed": 0.006392265130079178,
+    "delta_f1@0.1_vs_fixed": 0.005132141179705063
+  },
+  "scalar": {
+    "f1@0.1": 0.5733563974201826,
+    "f1@0.5": 0.8805173381599899,
+    "precision@0.1": 0.5733563974201826,
+    "recall@0.1": 0.5733563974201826,
+    "precision@0.5": 0.8805173381599899,
+    "recall@0.5": 0.8805173381599899,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.08,
+    "detected_ae_p95": 1.4,
+    "detected_ae_mae": 1.008869325146346,
+    "frac_err_gt_1s": 0.06636270949560676,
+    "frac_err_gt_5s": 0.02684064014296679,
+    "frac_err_gt_10s": 0.021674131946433275,
+    "frac_err_gt_30s": 0.010126814292096732,
+    "n_eligible_pairs": 55366,
+    "n_switch": 22216,
+    "switch_rate": 0.2544992152864491,
+    "fixes": 1526,
+    "breaks": 329,
+    "net_fixes": 1197,
+    "switch_precision": 0.8226415094339623,
+    "Q1_count": 41569,
+    "Q2_count": 1953,
+    "Q1_break_rate": 0.00791455170920638,
+    "Q2_recovery_rate": 0.7813620071684588,
+    "both_correct": 34097,
+    "both_wrong": 9674,
+    "tau": 0.5,
+    "delta_f1@0.5_vs_fixed": 0.013712439714524627,
+    "delta_f1@0.1_vs_fixed": 0.01939445316348387,
+    "delta_f1@0.5_vs_resid": 0.007320174584445449,
+    "delta_f1@0.1_vs_resid": 0.014262311983778808,
+    "delta_p95_vs_fixed": -0.26,
+    "peak_vram_MiB": 10.61328125
+  },
+  "bootstrap_vs_fixed": {
+    "n_boot": 2000,
+    "seed": 42,
+    "n_events": 5341,
+    "delta_f1@0.5": {
+      "mean": 0.01369929162495082,
+      "ci95": [
+        0.012656906329984199,
+        0.014803389414578488
+      ]
+    },
+    "delta_f1@0.1": {
+      "mean": 0.0193703255923023,
+      "ci95": [
+        0.017160103091255135,
+        0.02146003773584899
+      ]
+    },
+    "delta_p95": {
+      "mean": -0.2613845,
+      "ci95": [
+        -0.30000000000000004,
+        -0.21999999999999997
+      ]
+    }
+  },
+  "bootstrap_vs_resid": {
+    "n_boot": 2000,
+    "seed": 42,
+    "n_events": 5341,
+    "delta_f1@0.5": {
+      "mean": 0.007315861069286596,
+      "ci95": [
+        0.006505596737837615,
+        0.008158885173542001
+      ]
+    },
+    "delta_f1@0.1": {
+      "mean": 0.014245946128192136,
+      "ci95": [
+        0.0121848387432549,
+        0.016194477694005404
+      ]
+    },
+    "delta_p95": {
+      "mean": -0.12120050000000021,
+      "ci95": [
+        -0.1499999999999999,
+        -0.09999999999999987
+      ]
+    }
+  },
+  "lock_body_sha256": "1fb09af7ebd96bb0a71f4b4af91313d8ed10410b96f4aeb0616a813d3725a75b",
+  "confirm_read": false,
+  "waveform_used": false,
+  "tau": 0.5,
+  "elapsed_s": 36.33807992935181,
+  "device": "cuda:0",
+  "recommend_confirm": true
+}

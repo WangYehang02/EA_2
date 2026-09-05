@@ -1,0 +1,105 @@
+{
+  "method": "scalar_pairwise",
+  "locked_before_phaseB_full_dev_evaluation": true,
+  "declaration": "locked before phaseB full-dev evaluation",
+  "timestamp_utc": "2026-09-04T12:48:57Z",
+  "git_commit": "73dac37ac98faeb5be1af46e2a72606e6fc1c639",
+  "checkpoint_path": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_pairwise_seed42.pt",
+  "checkpoint_sha256": "7f0d1caae205fcfddc9981609a18bda33f31d9881953a2d93dc1ef55ee4fdaea",
+  "architecture": {
+    "class": "PairwiseScorer",
+    "use_waveform": false,
+    "use_scalar": true,
+    "n_scalar": 10,
+    "head": "Linear(n_scalar,64)->ReLU->Linear(64,1)",
+    "pairwise": "P(c2>c1)=sigmoid(s2-s1)"
+  },
+  "n_parameters": 769,
+  "scalar_feature_names": [
+    "prob",
+    "stead_prob",
+    "ida_prob",
+    "fixed_score",
+    "resid_s",
+    "resid_sp",
+    "delta_sp",
+    "src_stead",
+    "src_ida",
+    "src_both"
+  ],
+  "feature_preprocessing": {
+    "resid_nan_to_0": true,
+    "prob_nan_to_0": true,
+    "source_one_hot": [
+      "stead",
+      "ida",
+      "stead+ida"
+    ],
+    "no_trace_norm": true,
+    "no_waveform": true
+  },
+  "candidate_source": "UNION_STEAD5_IDA5 via phaseB enriched candidate table",
+  "c1_c2_definition": {
+    "c1": "argmax fixed_score",
+    "c2": "second by fixed_score",
+    "tie_break": "candidate_index ascending",
+    "forbidden": [
+      "true_S",
+      "true_P",
+      "STEAD_rank",
+      "IDA_rank",
+      "fulldev_label"
+    ],
+    "lt2_candidates": "prediction=c1"
+  },
+  "fixed_score": {
+    "lw": 0.5,
+    "lh": 2.0,
+    "lp": 0.0
+  },
+  "calibration_tau": 0.5,
+  "tau_note": "frozen from pilot calibration; full-dev must not re-tune",
+  "training_split_event_sha256": "0085450c119eb1fc3c91a684588fc0eab0d633a3af737bcb95353413ad07425b",
+  "calibration_split_event_sha256": "b228c79908f449d83fc9e841eacfff22231fbb86c91bcd86cf262f378df579f9",
+  "pilot_heldout_event_sha256": "d01dd17f2c347c443d3afac99d208ea0ef9db03892e34ce0ebb4e33b6904bc63",
+  "split_lock_path": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/SPLIT.LOCK.json",
+  "split_lock_sha256": "747ab0c190caf35b63715b92dcb2a0216639dd19f92fa629285122f9988bad96",
+  "phaseB_manifest_path": "/home/yehang/yehang/Earthquake/artifacts/results/stage6/phaseB_eval_manifest.csv",
+  "phaseB_manifest_sha256": "2cc1e7a3376525ed46ff12d182f947602714a5b353e651e4d59542b56894c4e7",
+  "phaseB_enriched_candidates_path": "/home/yehang/yehang/Earthquake/artifacts/results/multistation_moveout/phaseB_enriched_candidate_table.parquet",
+  "phaseB_enriched_sha256": "af0e00e63c4b235e4e4696775eb6d412d2d3c503d7e93e08485d57cb564d4c48",
+  "metric_implementation_path": "/home/yehang/yehang/Earthquake/src/earthquake/metrics.py",
+  "metric_implementation_sha256": "a434c55a354785357de9327fc4bc3bc8600fe45c4bb8428b3a8609c632e6b18a",
+  "residual_control": {
+    "lambda": 1.0,
+    "sigma_s": 0.5
+  },
+  "stage6_method_lock_sha256": "a02dc28e3f485559dd22b0d38c90d75923a159aed43a797bf234d765ada5b303",
+  "pilot_heldout_reference": {
+    "fixed_f1@0.5": 0.9196,
+    "resid_f1@0.5": 0.935,
+    "scalar_f1@0.5": 0.9403,
+    "delta_vs_fixed": 0.0207
+  },
+  "forbidden_in_fulldev": [
+    "waveform",
+    "recalibrate_tau",
+    "confirm",
+    "retune_resid_kernel",
+    "modify_c1_c2",
+    "new_candidates",
+    "abstain"
+  ],
+  "environment": {
+    "python": "3.11.15 | packaged by conda-forge | (main, Aug 11 2026, 10:26:29) [GCC 14.4.0]",
+    "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.43",
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "provenance_pairwise_pilot_markers_preserved": [
+    "PAIRWISE.PILOT.FAILED",
+    "PAIRWISE.PILOT.RESUMED_AFTER_IO_FIX",
+    "PAIRWISE.PILOT.FAILED_AFTER_RESUME"
+  ],
+  "lock_body_sha256": "1fb09af7ebd96bb0a71f4b4af91313d8ed10410b96f4aeb0616a813d3725a75b"
+}

@@ -1,0 +1,20 @@
+{
+  "figure": "figS_negative_ablations",
+  "script": "scripts/build_final_paper_figures.py",
+  "timestamp_utc": "2026-09-04T13:48:39Z",
+  "sources": [
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/multistation_soft/soft_ring_best.json",
+      "sha256": "08a79ae70c2d27fc37d0d76f223e2455995af97d9349b457942ee591be3c8518"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/multistation_moveout/moveout_metrics.csv",
+      "sha256": "bfba77bfe3f95444f47ed63ef9422fcfdafc3aa65ee62041f1fc3a8376a168b9"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/waveform_bootstrap.json",
+      "sha256": "06b41922b2040ee85274e5cc707ad9de78b2280bf2b2fd2d1a542d132cd3eedf"
+    }
+  ],
+  "notes": "Supplement only; do not dominate main story."
+}

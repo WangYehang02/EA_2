@@ -1,0 +1,32 @@
+{
+  "quadrants_and_pool": {
+    "n_traces_total": 206413,
+    "n_events_total": 8058,
+    "n_ge2": 156818,
+    "Q1_c1_ok_c2_bad": 59449,
+    "Q2_c1_bad_c2_ok": 5651,
+    "both_correct": 82725,
+    "both_wrong": 8993,
+    "label_class_counts": {
+      "choose_c1": 59324,
+      "tie_ae_close": 58510,
+      "single_candidate": 49595,
+      "both_correct": 26432,
+      "both_wrong": 7162,
+      "choose_c2": 5390
+    },
+    "baseline_c1_acc_at_0.5": 0.9183190981188201,
+    "top2_candidate_oracle_acc_at_0.5": 0.9456962497517114,
+    "n_baseline_wrong": 16860,
+    "n_ranking_recoverable_via_c2": 5651,
+    "n_candidate_missing_or_both_wrong": 11209,
+    "frac_wrong_that_are_ranking_recoverable": 0.3351720047449585,
+    "frac_wrong_candidate_missing": 0.6648279952550415,
+    "note_Q2_phaseB_was_1953": "phaseB Q2=1953 is a different split; this freeze is ranker_train only"
+  },
+  "split": {
+    "calibration": 31657,
+    "heldout_eval": 30252,
+    "train": 144504
+  }
+}

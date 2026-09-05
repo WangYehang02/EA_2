@@ -1,0 +1,60 @@
+{
+  "oracle_only": true,
+  "note": "LEAKAGE DIAGNOSTIC — NOT A VALID TEST-TIME METHOD",
+  "oracle_A_abs_s": {
+    "delta_f1@0.5": 0.006884859037952662,
+    "metrics": {
+      "f1@0.1": 0.5595294009828967,
+      "f1@0.5": 0.8736897574834179,
+      "precision@0.1": 0.5595294009828967,
+      "recall@0.1": 0.5595294009828967,
+      "precision@0.5": 0.8736897574834179,
+      "recall@0.5": 0.8736897574834179,
+      "miss_rate": 0.0,
+      "detected_ae_median": 0.09,
+      "detected_ae_p95": 1.51,
+      "wrong_peak_rate": 0.12631024251658207,
+      "frac_ae_gt_1s": 0.0701316256744527,
+      "frac_ae_gt_5s": 0.029452533421923867,
+      "frac_ae_gt_10s": 0.02527121304113732,
+      "frac_ae_gt_30s": 0.016816926901355205
+    },
+    "recoverable": {
+      "n_baseline_wrong_but_recoverable": 2173,
+      "fixes": 706,
+      "breaks_all": 105,
+      "net_fixes_minus_breaks": 601,
+      "recoverable_oracle_gap_recovered_pct": 0.32489645651173493,
+      "changed_rate": 0.03647486052719004,
+      "change_precision": 0.8705302096177558
+    }
+  },
+  "oracle_B_sp": {
+    "delta_f1@0.5": 0.005303976263847043,
+    "metrics": {
+      "f1@0.1": 0.5580401635870001,
+      "f1@0.5": 0.8721088747093123,
+      "precision@0.1": 0.5580401635870001,
+      "recall@0.1": 0.5580401635870001,
+      "precision@0.5": 0.8721088747093123,
+      "recall@0.5": 0.8721088747093123,
+      "miss_rate": 0.0,
+      "detected_ae_median": 0.09,
+      "detected_ae_p95": 1.55,
+      "wrong_peak_rate": 0.1278911252906877,
+      "frac_ae_gt_1s": 0.07152921769214027,
+      "frac_ae_gt_5s": 0.030437721237670832,
+      "frac_ae_gt_10s": 0.026244945184608157,
+      "frac_ae_gt_30s": 0.017435533204266093
+    },
+    "recoverable": {
+      "n_baseline_wrong_but_recoverable": 2173,
+      "fixes": 619,
+      "breaks_all": 156,
+      "net_fixes_minus_breaks": 463,
+      "recoverable_oracle_gap_recovered_pct": 0.28485964104924066,
+      "changed_rate": 0.03545530569461469,
+      "change_precision": 0.7987096774193548
+    }
+  }
+}

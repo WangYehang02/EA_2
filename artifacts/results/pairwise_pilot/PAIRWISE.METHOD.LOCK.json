@@ -1,0 +1,124 @@
+{
+  "method": "waveform_plus_scalar",
+  "seed": 42,
+  "tau": 0.5,
+  "tau_selection": {
+    "selected": {
+      "tau": 0.5,
+      "fixes": 803,
+      "breaks": 63,
+      "net": 740,
+      "precision": 0.9272517321016166,
+      "n_switch": 8255,
+      "switch_rate": 0.2607638121110655
+    },
+    "grid": [
+      {
+        "tau": 0.5,
+        "fixes": 803,
+        "breaks": 63,
+        "net": 740,
+        "precision": 0.9272517321016166,
+        "n_switch": 8255,
+        "switch_rate": 0.2607638121110655
+      },
+      {
+        "tau": 0.6,
+        "fixes": 754,
+        "breaks": 41,
+        "net": 713,
+        "precision": 0.9484276729559749,
+        "n_switch": 5991,
+        "switch_rate": 0.18924724389550496
+      },
+      {
+        "tau": 0.7,
+        "fixes": 711,
+        "breaks": 20,
+        "net": 691,
+        "precision": 0.9726402188782489,
+        "n_switch": 4184,
+        "switch_rate": 0.13216666140190164
+      },
+      {
+        "tau": 0.8,
+        "fixes": 663,
+        "breaks": 7,
+        "net": 656,
+        "precision": 0.9895522388059701,
+        "n_switch": 2737,
+        "switch_rate": 0.08645797138073728
+      },
+      {
+        "tau": 0.9,
+        "fixes": 561,
+        "breaks": 1,
+        "net": 560,
+        "precision": 0.998220640569395,
+        "n_switch": 961,
+        "switch_rate": 0.030356635183371766
+      }
+    ]
+  },
+  "tau_by_model": {
+    "waveform_plus_scalar": {
+      "tau": 0.5,
+      "fixes": 803,
+      "breaks": 63,
+      "net": 740,
+      "precision": 0.9272517321016166,
+      "n_switch": 8255,
+      "switch_rate": 0.2607638121110655
+    },
+    "waveform_only": {
+      "tau": 0.9,
+      "fixes": 349,
+      "breaks": 44,
+      "net": 305,
+      "precision": 0.8880407124681934,
+      "n_switch": 470,
+      "switch_rate": 0.01484663739457308
+    },
+    "scalar_pairwise": {
+      "tau": 0.5,
+      "fixes": 799,
+      "breaks": 71,
+      "net": 728,
+      "precision": 0.9183908045977012,
+      "n_switch": 8185,
+      "switch_rate": 0.2585526107969801
+    }
+  },
+  "window": {
+    "pre_s": 1.5,
+    "post_s": 2.5,
+    "n_samples": 400
+  },
+  "scalar_features": [
+    "prob",
+    "stead_prob",
+    "ida_prob",
+    "fixed_score",
+    "resid_s",
+    "resid_sp",
+    "delta_sp",
+    "src_stead",
+    "src_ida",
+    "src_both"
+  ],
+  "n_parameters": 40577,
+  "ckpt_sha256": "743757cd0d081ff973a277e87b6e09f92390df189d58e12060a7e90674536e72",
+  "cache_lock_sha256": "ebe9371c0485f99cf1d07b782d533fa9c4bad1f8799293d714f3b9882a68a93a",
+  "split_lock_event_sha256": {
+    "train": "0085450c119eb1fc3c91a684588fc0eab0d633a3af737bcb95353413ad07425b",
+    "calibration": "b228c79908f449d83fc9e841eacfff22231fbb86c91bcd86cf262f378df579f9",
+    "heldout_eval": "d01dd17f2c347c443d3afac99d208ea0ef9db03892e34ce0ebb4e33b6904bc63"
+  },
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "max_epoch": 20,
+  "patience": 4,
+  "resumed_after_io_fix": true,
+  "original_FAILED_preserved": true,
+  "code_note": "pairwise waveform resume; not Stage-6 method lock"
+}

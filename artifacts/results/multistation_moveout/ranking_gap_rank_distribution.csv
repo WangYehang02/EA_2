@@ -1,0 +1,2 @@
+n_recoverable,rank_good_eq_2,rank_good_eq_3,rank_good_eq_4,rank_good_eq_5,rank_good_gt_5,P_rank_good_le_2,P_rank_good_le_3,P_rank_good_le_5,mean_rank_good,median_rank_good,mean_n_candidates,median_delta_score_good_minus_bad
+2173,1820,307,40,6,0,0.8375517717441325,0.9788311090658076,1.0,2.1863782788771284,2.0,2.4960883571099863,-0.45396205496610503

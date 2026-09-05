@@ -1,0 +1,115 @@
+{
+  "created_unix": 1788519748.9043007,
+  "wall_s": 624.9537041187286,
+  "total_traces": 92547,
+  "total_pairs": 92547,
+  "total_bytes": 1184602368,
+  "hdf5_path": "/data/mnt_data/yehang/PSdetec/INSTANCE/events/Instance_events_counts.hdf5",
+  "split_lock_event_sha256": {
+    "train": "0085450c119eb1fc3c91a684588fc0eab0d633a3af737bcb95353413ad07425b",
+    "calibration": "b228c79908f449d83fc9e841eacfff22231fbb86c91bcd86cf262f378df579f9",
+    "heldout_eval": "d01dd17f2c347c443d3afac99d208ea0ef9db03892e34ce0ebb4e33b6904bc63"
+  },
+  "window": {
+    "pre_s": 1.5,
+    "post_s": 2.5,
+    "n_samples": 400
+  },
+  "component_order": "ZNE (from Instance ENZ)",
+  "normalization": "full_trace_mean_std",
+  "splits": {
+    "train": {
+      "split": "train",
+      "n_traces": 45459,
+      "n_pairs": 45459,
+      "shape_waves": [
+        45459,
+        2,
+        3,
+        400
+      ],
+      "dtype": "float32",
+      "window": {
+        "pre_s": 1.5,
+        "post_s": 2.5,
+        "n_samples": 400
+      },
+      "preprocessing": "ENZ->ZNE; full-trace mean/std; crop; zero-pad masked",
+      "bytes": 581875456,
+      "wall_s": 319.313472032547,
+      "hdf5_open_count": 4,
+      "bytes_read_from_hdf5": 6546096000,
+      "avg_MB_s": 20.500531838922125,
+      "avg_traces_per_s": 142.36480443695922,
+      "failed_crops": 0,
+      "padded_crops": 0,
+      "n_workers": 4,
+      "waves_sha256": "4b5dba1a795e5e9009e40d85611daa3b3565a78148fa928441db56c0c679a77d",
+      "masks_sha256": "519dab76872f4adb467f81b0b194cd7be15e8bda826fd6f17ff4b497950b1b20",
+      "manifest_sha256": "55f90242ffc7add8a33aa70c2324646fb1f76dcf8a4b58823d57d2306ea158ba"
+    },
+    "calibration": {
+      "split": "calibration",
+      "n_traces": 24036,
+      "n_pairs": 24036,
+      "shape_waves": [
+        24036,
+        2,
+        3,
+        400
+      ],
+      "dtype": "float32",
+      "window": {
+        "pre_s": 1.5,
+        "post_s": 2.5,
+        "n_samples": 400
+      },
+      "preprocessing": "ENZ->ZNE; full-trace mean/std; crop; zero-pad masked",
+      "bytes": 307661056,
+      "wall_s": 155.41609573364258,
+      "hdf5_open_count": 4,
+      "bytes_read_from_hdf5": 3461184000,
+      "avg_MB_s": 22.2704346268735,
+      "avg_traces_per_s": 154.65579601995483,
+      "failed_crops": 0,
+      "padded_crops": 0,
+      "n_workers": 4,
+      "waves_sha256": "01608c8eacba8c2d0a0f86c10bebfe22745a5b623d6459ce5932fdfa959f5d2e",
+      "masks_sha256": "8a82fb64c8765fe39a611b5dd9092aa6283f08b087d89e85c93aa5fb4c18f436",
+      "manifest_sha256": "10c64eab6f6ad1a3becc7d4e27afaa3376c8c8fc69eba341e0190fe6cf065e60"
+    },
+    "heldout_eval": {
+      "split": "heldout_eval",
+      "n_traces": 23052,
+      "n_pairs": 23052,
+      "shape_waves": [
+        23052,
+        2,
+        3,
+        400
+      ],
+      "dtype": "float32",
+      "window": {
+        "pre_s": 1.5,
+        "post_s": 2.5,
+        "n_samples": 400
+      },
+      "preprocessing": "ENZ->ZNE; full-trace mean/std; crop; zero-pad masked",
+      "bytes": 295065856,
+      "wall_s": 147.65405225753784,
+      "hdf5_open_count": 4,
+      "bytes_read_from_hdf5": 3319488000,
+      "avg_MB_s": 22.48152319050585,
+      "avg_traces_per_s": 156.1216888229573,
+      "failed_crops": 0,
+      "padded_crops": 0,
+      "n_workers": 4,
+      "waves_sha256": "bbd3710d21fb74149208e4bfecce6157f223ce781989dec4bb4940183d024e5b",
+      "masks_sha256": "ea4ad7fc3c49840e7ad79bc455f797e3b644d573c431297baca2640a6dd0c4fd",
+      "manifest_sha256": "cc8baaefcf24bde5a9bd17020cd7c57f38706320326c0ec3f925784fe5034871"
+    }
+  },
+  "n_workers_per_split": 4,
+  "note": "built for pairwise IO fix; does not modify Stage-6",
+  "cache_lock_sha256": "ebe9371c0485f99cf1d07b782d533fa9c4bad1f8799293d714f3b9882a68a93a"
+}

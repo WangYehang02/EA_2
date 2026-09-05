@@ -1,0 +1,32 @@
+{
+  "figure": "fig3_replication",
+  "script": "scripts/build_final_paper_figures.py",
+  "timestamp_utc": "2026-09-04T13:48:38Z",
+  "sources": [
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ablation_metrics.json",
+      "sha256": "5ade854c577f9f15fa69c7102a0031cb602a1ee1322e20e1800e0860de38b32c"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/bootstrap.json",
+      "sha256": "06b41922b2040ee85274e5cc707ad9de78b2280bf2b2fd2d1a542d132cd3eedf"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_fulldev/fulldev_final.json",
+      "sha256": "dedc35d9687643bb7bd145449234c265fe96666bed313134b0521fa05598cb0d"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_confirm/confirm_scalar_metrics.json",
+      "sha256": "946ecae9bed218e0ca8aa2885ca2fe455fb50692ec6e4237c7f0727e347e63c1"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_confirm/confirm_bootstrap_scalar_vs_fixed.json",
+      "sha256": "2afdb3e750cf2b1079aef5e0126b1f705b4ac1015d6083f3a972931546897024"
+    },
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_confirm/confirm_bootstrap_scalar_vs_resid.json",
+      "sha256": "5d31035f13e73faf0245a31b6d448f326c8bab008434027ba164061c85b512d4"
+    }
+  ],
+  "notes": "held-out scalar-resid has point estimate only (no frozen bootstrap CI)."
+}

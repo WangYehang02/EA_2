@@ -1,0 +1,86 @@
+{
+  "gates": {
+    "1_delta_f1_vs_fixed_ge_0.010": false,
+    "2_delta_f1_vs_resid_ge_0.004": false,
+    "3_bootstrap_ci_low_gt_0": true,
+    "4_net_fixes_ge_1pct": true,
+    "5_switch_precision_ge_0.80": true,
+    "6_q2_recovery_ge_0.50": true,
+    "7_f1_0.1_not_worse_than_0.001": true,
+    "8_p95_not_worse_0.05": true,
+    "9_miss_rate_zero": true,
+    "10_outputs_from_c1_c2_only": true,
+    "11_waveform_independent_info": false,
+    "waveform_plus_scalar_completed": false
+  },
+  "passed": false,
+  "ablation": {
+    "fixed_rescore_UNION": {
+      "f1@0.1": 0.64289964299881,
+      "f1@0.5": 0.9195755652518842,
+      "precision@0.5": 0.9195755652518842,
+      "recall@0.5": 0.9195755652518842,
+      "miss_rate": 0.0,
+      "detected_ae_median": 0.07,
+      "detected_ae_p95": 1.07,
+      "delta_f1@0.5": 0.0,
+      "fixes": 0,
+      "breaks": 0,
+      "net_fixes": 0
+    },
+    "resid_s_control": {
+      "f1@0.1": 0.6556260743091366,
+      "f1@0.5": 0.9350456168187227,
+      "precision@0.5": 0.9350456168187228,
+      "recall@0.5": 0.9350456168187228,
+      "miss_rate": 0.0,
+      "detected_ae_median": 0.07,
+      "detected_ae_p95": 0.67,
+      "delta_f1@0.5": 0.01547005156683845
+    },
+    "scalar_pairwise": {
+      "f1@0.1": 0.6633611000925559,
+      "f1@0.5": 0.9403014676715589,
+      "precision@0.5": 0.9403014676715589,
+      "recall@0.5": 0.9403014676715589,
+      "miss_rate": 0.0,
+      "detected_ae_median": 0.06,
+      "detected_ae_p95": 0.61,
+      "delta_f1@0.5": 0.020725902419674647,
+      "delta_f1@0.1": 0.020461457093745916,
+      "delta_p95": -0.4600000000000001,
+      "fixes": 705,
+      "breaks": 78,
+      "net_fixes": 627,
+      "switch_precision": 0.9003831417624522,
+      "switch_coverage": 0.2482811053814624,
+      "q2_n": 798,
+      "q2_recovery": 0.8834586466165414,
+      "tau": 0.5
+    },
+    "waveform_pairwise": "NOT_RUN_IO_BOUND",
+    "waveform_plus_scalar_pairwise": "NOT_RUN_IO_BOUND"
+  },
+  "bootstrap": {
+    "n_boot": 2000,
+    "seed": 42,
+    "delta_f1@0.5": {
+      "mean": 0.02070000995904244,
+      "ci95": [
+        0.01816312577844821,
+        0.023312352964793205
+      ]
+    }
+  },
+  "scalar_provisional": {
+    "delta_f1@0.5": 0.020725902419674647,
+    "vs_resid": 0.005255850852836197,
+    "meets_0.010_vs_fixed": true,
+    "meets_0.004_vs_resid": true
+  },
+  "n_eval": 30252,
+  "full_dev_read": false,
+  "confirm_read": false,
+  "verdict": "waveform_pairwise_no_go_incomplete_io",
+  "reason": "Requested primary waveform_plus_scalar not completed; HDF5 crop cache still building (~10it/s). Hard stop without full-dev/confirm."
+}

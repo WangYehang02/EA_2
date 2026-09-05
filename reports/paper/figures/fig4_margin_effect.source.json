@@ -1,0 +1,12 @@
+{
+  "figure": "fig4_margin_effect",
+  "script": "scripts/build_final_paper_figures.py",
+  "timestamp_utc": "2026-09-04T13:48:38Z",
+  "sources": [
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_confirm/confirm_margin_bins.csv",
+      "sha256": "fb21ffadf03eade0f8720f619ef6ba557b8266561e07c6bcd5d39dd3aebdc789"
+    }
+  ],
+  "notes": "Post-hoc mechanism analysis on confirm; not used for gate design."
+}

@@ -9,8 +9,21 @@ build/
 .mypy_cache/
 .ruff_cache/
 .ipynb_checkpoints/
-artifacts/**
-!artifacts/.gitkeep
+.DS_Store
+.tensorboard/
+runs/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+
+# Local INSTANCE mount/symlink (set INSTANCE_ROOT in .env instead)
+data/INSTANCE
+data/**
+!data/.gitkeep
+
+# Heavy binaries by default
 *.pt
 *.pth
 *.ckpt
@@ -19,10 +32,36 @@ artifacts/**
 *.npy
 *.npz
 *.zarr/
-.DS_Store
-.tensorboard/
-runs/
-# Local INSTANCE mount/symlink (set INSTANCE_ROOT in .env instead)
-data/INSTANCE
-data/**
-!data/.gitkeep
+
+# Artifacts ignored by default; selectively re-include frozen paper evidence
+artifacts/**
+!artifacts/.gitkeep
+!artifacts/results/
+!artifacts/results/final_evidence/
+!artifacts/results/final_evidence/**
+!artifacts/results/pairwise_confirm/
+!artifacts/results/pairwise_confirm/**
+!artifacts/results/pairwise_fulldev/
+!artifacts/results/pairwise_fulldev/**
+!artifacts/results/pairwise_pilot/
+!artifacts/results/pairwise_pilot/**
+!artifacts/results/multistation_soft/
+!artifacts/results/multistation_soft/**
+!artifacts/results/multistation_moveout/
+!artifacts/results/multistation_moveout/**
+
+# Re-ignore bulky / non-evidence files inside allowed trees
+artifacts/results/**/*.parquet
+artifacts/results/**/*.npy
+artifacts/results/**/crop_cache/
+artifacts/results/**/logs/
+artifacts/results/**/*.log
+artifacts/results/**/watchdog.lock
+artifacts/results/**/ranking_gap_pairs.csv
+artifacts/results/**/ranking_gap_q2_top1wrong_top2correct.csv
+artifacts/results/pairwise_pilot/ckpt_waveform*.pt
+artifacts/results/pairwise_pilot/ckpt_scalar_without*.pt
+artifacts/results/pairwise_pilot/ckpt_scalar_full*.pt
+
+# Frozen main scalar checkpoint (small; needed for provenance)
+!artifacts/results/pairwise_pilot/ckpt_scalar_pairwise_seed42.pt

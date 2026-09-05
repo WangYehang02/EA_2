@@ -1,0 +1,9 @@
+{
+  "n_waveform_fixes_over_scalar": 42,
+  "n_waveform_breaks_over_scalar": 28,
+  "net_waveform_vs_scalar": 14,
+  "both_correct": 28418,
+  "both_wrong": 1764,
+  "scalar_only_correct": 28,
+  "waveform_only_correct": 42
+}

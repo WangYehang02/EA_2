@@ -1,0 +1,282 @@
+{
+  "n_checks": 39,
+  "n_failures": 0,
+  "checks": [
+    {
+      "name": "method_lock_hash",
+      "observed": 0,
+      "reported": 0,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "confirm_exec_hash",
+      "observed": 0,
+      "reported": 0,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "confirm_fixed_f1@0.5_round4",
+      "observed": 0.8373,
+      "reported": 0.8373,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "confirm_resid_f1@0.5_round4",
+      "observed": 0.8459,
+      "reported": 0.8459,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "confirm_scalar_f1@0.5_round4",
+      "observed": 0.8535,
+      "reported": 0.8535,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "confirm_scalar_fixed_delta_round4",
+      "observed": 0.0162,
+      "reported": 0.0162,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "confirm_scalar_resid_delta_round4",
+      "observed": 0.0076,
+      "reported": 0.0076,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "confirm_fixes",
+      "observed": 907,
+      "reported": 907,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "confirm_breaks",
+      "observed": 210,
+      "reported": 210,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "confirm_net",
+      "observed": 697,
+      "reported": 697,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "confirm_switch_precision_round3",
+      "observed": 0.812,
+      "reported": 0.812,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "confirm_q2_recovery_round3",
+      "observed": 0.773,
+      "reported": 0.773,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "confirm_fixed_f1@0.1_round4",
+      "observed": 0.5035,
+      "reported": 0.5035,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "confirm_p95_round2",
+      "observed": 2.47,
+      "reported": 2.47,
+      "tol": 0.015,
+      "ok": true
+    },
+    {
+      "name": "boot_sf_mean_round4",
+      "observed": 0.0162,
+      "reported": 0.0162,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "boot_sf_ci_lo_round4",
+      "observed": 0.0146,
+      "reported": 0.0146,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "boot_sf_ci_hi_round4",
+      "observed": 0.0178,
+      "reported": 0.0178,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "boot_sr_mean_round4",
+      "observed": 0.0076,
+      "reported": 0.0076,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "boot_sr_ci_lo_round4",
+      "observed": 0.0065,
+      "reported": 0.0065,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "boot_sr_ci_hi_round4",
+      "observed": 0.0088,
+      "reported": 0.0088,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "pilot_fixed_round4",
+      "observed": 0.9196,
+      "reported": 0.9196,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "pilot_resid_round4",
+      "observed": 0.935,
+      "reported": 0.935,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "pilot_scalar_round4",
+      "observed": 0.9403,
+      "reported": 0.9403,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "pilot_delta_fixed_round4",
+      "observed": 0.0207,
+      "reported": 0.0207,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "fd_fixed_round4",
+      "observed": 0.8668,
+      "reported": 0.8668,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "fd_resid_round4",
+      "observed": 0.8732,
+      "reported": 0.8732,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "fd_scalar_round4",
+      "observed": 0.8805,
+      "reported": 0.8805,
+      "tol": 5e-05,
+      "ok": true
+    },
+    {
+      "name": "n_recoverable",
+      "observed": 2173,
+      "reported": 2173,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "rank2",
+      "observed": 1820,
+      "reported": 1820,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "rank3",
+      "observed": 307,
+      "reported": 307,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "rank4",
+      "observed": 40,
+      "reported": 40,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "rank5",
+      "observed": 6,
+      "reported": 6,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "P_le2_round3",
+      "observed": 0.838,
+      "reported": 0.838,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "P_le3_round3",
+      "observed": 0.979,
+      "reported": 0.979,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "resid_corr_round3",
+      "observed": 0.998,
+      "reported": 0.998,
+      "tol": 0.0005,
+      "ok": true
+    },
+    {
+      "name": "waveform_delta_lt_0.001",
+      "observed": 1.0,
+      "reported": 1.0,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "n_traces",
+      "observed": 43090,
+      "reported": 43090,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "n_events",
+      "observed": 2669,
+      "reported": 2669,
+      "tol": 0,
+      "ok": true
+    },
+    {
+      "name": "n_ge2",
+      "observed": 27560,
+      "reported": 27560,
+      "tol": 0,
+      "ok": true
+    }
+  ],
+  "failures": [],
+  "passed": true,
+  "timestamp_utc": "2026-09-04T13:50:05Z"
+}

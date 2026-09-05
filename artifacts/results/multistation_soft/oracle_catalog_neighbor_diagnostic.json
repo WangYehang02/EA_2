@@ -1,0 +1,21 @@
+{
+  "oracle_only": true,
+  "note": "NOT A VALID TEST-TIME METHOD — neighbor ΔSP uses catalog S + predicted P; target candidates unchanged",
+  "metrics": {
+    "f1@0.1": 0.5580745306038285,
+    "f1@0.5": 0.8715131797509537,
+    "precision@0.1": 0.5580745306038285,
+    "recall@0.1": 0.5580745306038285,
+    "precision@0.5": 0.8715131797509537,
+    "recall@0.5": 0.8715131797509537,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.09,
+    "detected_ae_p95": 1.57,
+    "wrong_peak_rate": 0.1284868202490463,
+    "frac_ae_gt_1s": 0.07187288786042409,
+    "frac_ae_gt_5s": 0.030460632582223087,
+    "frac_ae_gt_10s": 0.02623348951233203,
+    "frac_ae_gt_30s": 0.017378254842885455
+  },
+  "delta_f1@0.5": 0.004708281305488393
+}

@@ -1,0 +1,12 @@
+{
+  "lambda0_equals_baseline_sample": true,
+  "lambda0_matches_frozen_npy": true,
+  "no_neighbor_unchanged": true,
+  "always_from_union_set": true,
+  "confirm_untouched": true,
+  "stage6_lock_untouched": true,
+  "shuffle_event_delta_f1@0.5": 0.0005727836138064157,
+  "shuffle_sp_delta_f1@0.5": 0.00043531554649289816,
+  "shuffle_event_reduces_gain": true,
+  "shuffle_sp_reduces_gain": true
+}

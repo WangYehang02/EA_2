@@ -1,0 +1,6 @@
+Method,ΔF1@0.5,P95_change_note,Interpretation,Verdict
+hard_ring_gate_best,0.0078,P95→0.86 with abstain=0.058,Hard abstention improves timing but violates always-output protocol,NO-GO
+soft_same_ring_best,0.0024,delta_p95=-0.09,Significant but small soft geometric gain,small / not primary
+moveout_best_legal,0.0056,delta_p95=-0.14,≤ single-station resid control; agree≈0.983,NO-GO (geometry)
+waveform_only,0.0082,held-out pilot,Informative in isolation; below scalar,not chosen
+waveform_plus_scalar,0.0005,"vs scalar; CI=[-0.0001671656736925181, 0.0011385179326135685]",Conditional increment not material,NO-GO (waveform branch)

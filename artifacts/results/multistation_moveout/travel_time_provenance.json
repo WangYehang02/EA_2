@@ -1,0 +1,11 @@
+{
+  "travel_time_source": "stage6 residual_history_features.base_tau_s / base_delta_sp",
+  "baseline_kind": "mlp",
+  "fit_split": "picker_train_only",
+  "n_picker_train_events": 37806,
+  "n_picker_ps_traces_for_mlp": 377087,
+  "baseline_sha256": "4295711d11c75d2ec71c9180e9eb9d02592c3bbe87fb9ca6432df443758a7d44",
+  "features_sha256": "da74662d09d4a83f641828d6677746fff5f613c0d072964067d8e234b1ccb7d9",
+  "confirm_excluded": true,
+  "phaseB_labels_used_for_fit": false
+}

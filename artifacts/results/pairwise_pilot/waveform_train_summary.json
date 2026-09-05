@@ -1,0 +1,713 @@
+{
+  "waveform_only": {
+    "best_cal_net_at_tau0.5": 162,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_waveform_only_seed42.pt",
+    "ckpt_sha256": "9f118f5e1a9d8a94c58cb37a5f3933a1f374094e871a980e738bfadc3a17886b",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 1.1304309295094614,
+        "cal_net@0.5": 79,
+        "grad_wave": 86.311363697052
+      },
+      {
+        "ep": 1,
+        "loss": 1.0145357980619112,
+        "cal_net@0.5": 80,
+        "grad_wave": 34.209292620420456
+      },
+      {
+        "ep": 2,
+        "loss": 0.9890686001004765,
+        "cal_net@0.5": 75,
+        "grad_wave": 43.94622313976288
+      },
+      {
+        "ep": 3,
+        "loss": 0.9824579701746403,
+        "cal_net@0.5": 90,
+        "grad_wave": 156.61934852600098
+      },
+      {
+        "ep": 4,
+        "loss": 0.9606108163968595,
+        "cal_net@0.5": 99,
+        "grad_wave": 110.0897741317749
+      },
+      {
+        "ep": 5,
+        "loss": 0.9451245323124111,
+        "cal_net@0.5": 123,
+        "grad_wave": 243.5700272321701
+      },
+      {
+        "ep": 6,
+        "loss": 0.9214923077613124,
+        "cal_net@0.5": 120,
+        "grad_wave": 253.98579105734825
+      },
+      {
+        "ep": 7,
+        "loss": 0.9072427751410429,
+        "cal_net@0.5": 129,
+        "grad_wave": 43.74568772315979
+      },
+      {
+        "ep": 8,
+        "loss": 0.8793211616861718,
+        "cal_net@0.5": 162,
+        "grad_wave": 214.9281462430954
+      },
+      {
+        "ep": 9,
+        "loss": 0.844354846860686,
+        "cal_net@0.5": 143,
+        "grad_wave": 325.02709287405014
+      },
+      {
+        "ep": 10,
+        "loss": 0.815236138503963,
+        "cal_net@0.5": 124,
+        "grad_wave": 456.1953663825989
+      },
+      {
+        "ep": 11,
+        "loss": 0.777730289247862,
+        "cal_net@0.5": 118,
+        "grad_wave": 529.3276455402374
+      },
+      {
+        "ep": 12,
+        "loss": 0.7312549619941743,
+        "cal_net@0.5": 119,
+        "grad_wave": 394.3947250843048
+      }
+    ],
+    "n_parameters": 39937
+  },
+  "waveform_plus_scalar": {
+    "best_cal_net_at_tau0.5": 740,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_waveform_plus_scalar_seed42.pt",
+    "ckpt_sha256": "743757cd0d081ff973a277e87b6e09f92390df189d58e12060a7e90674536e72",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.3661084286775971,
+        "cal_net@0.5": 619,
+        "grad_wave": 10.661229908466339
+      },
+      {
+        "ep": 1,
+        "loss": 0.2569408470551726,
+        "cal_net@0.5": 671,
+        "grad_wave": 0.12533078156411648
+      },
+      {
+        "ep": 2,
+        "loss": 0.2252494377833605,
+        "cal_net@0.5": 699,
+        "grad_wave": 2.3857686389237642
+      },
+      {
+        "ep": 3,
+        "loss": 0.2003873272656505,
+        "cal_net@0.5": 725,
+        "grad_wave": 2.346747272636106e-15
+      },
+      {
+        "ep": 4,
+        "loss": 0.19058192823701364,
+        "cal_net@0.5": 726,
+        "grad_wave": 2.328968400078235e-09
+      },
+      {
+        "ep": 5,
+        "loss": 0.18241016230557958,
+        "cal_net@0.5": 740,
+        "grad_wave": 0.0013067532490822487
+      },
+      {
+        "ep": 6,
+        "loss": 0.18156040660357836,
+        "cal_net@0.5": 728,
+        "grad_wave": 6.814155127853155
+      },
+      {
+        "ep": 7,
+        "loss": 0.17298076617707778,
+        "cal_net@0.5": 731,
+        "grad_wave": 8.44642959535122
+      },
+      {
+        "ep": 8,
+        "loss": 0.16991769336078208,
+        "cal_net@0.5": 727,
+        "grad_wave": 26.026825949549675
+      },
+      {
+        "ep": 9,
+        "loss": 0.1703250945963728,
+        "cal_net@0.5": 721,
+        "grad_wave": 6.638033535455554e-13
+      }
+    ],
+    "n_parameters": 40577
+  },
+  "scalar_full": {
+    "best_cal_net_at_tau0.5": 735,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_full_seed42.pt",
+    "ckpt_sha256": "01e922011602912edecc0fdbb5a840277b73e4d1604ddebda3c8dd72e7a4b5c8",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.31710668943363307,
+        "cal_net@0.5": 645,
+        "grad_wave": null
+      },
+      {
+        "ep": 1,
+        "loss": 0.24696126760942133,
+        "cal_net@0.5": 684,
+        "grad_wave": null
+      },
+      {
+        "ep": 2,
+        "loss": 0.22060882301094195,
+        "cal_net@0.5": 699,
+        "grad_wave": null
+      },
+      {
+        "ep": 3,
+        "loss": 0.20614920635842585,
+        "cal_net@0.5": 709,
+        "grad_wave": null
+      },
+      {
+        "ep": 4,
+        "loss": 0.20295083250636992,
+        "cal_net@0.5": 706,
+        "grad_wave": null
+      },
+      {
+        "ep": 5,
+        "loss": 0.197226721816111,
+        "cal_net@0.5": 716,
+        "grad_wave": null
+      },
+      {
+        "ep": 6,
+        "loss": 0.19675347380736402,
+        "cal_net@0.5": 724,
+        "grad_wave": null
+      },
+      {
+        "ep": 7,
+        "loss": 0.19431087176272643,
+        "cal_net@0.5": 719,
+        "grad_wave": null
+      },
+      {
+        "ep": 8,
+        "loss": 0.1921870829426215,
+        "cal_net@0.5": 735,
+        "grad_wave": null
+      },
+      {
+        "ep": 9,
+        "loss": 0.1973850745079837,
+        "cal_net@0.5": 727,
+        "grad_wave": null
+      },
+      {
+        "ep": 10,
+        "loss": 0.19088390841358346,
+        "cal_net@0.5": 708,
+        "grad_wave": null
+      },
+      {
+        "ep": 11,
+        "loss": 0.19201030062250804,
+        "cal_net@0.5": 719,
+        "grad_wave": null
+      },
+      {
+        "ep": 12,
+        "loss": 0.1903751440012428,
+        "cal_net@0.5": 712,
+        "grad_wave": null
+      }
+    ],
+    "n_parameters": 769
+  },
+  "scalar_without_resid_s": {
+    "best_cal_net_at_tau0.5": 568,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_without_resid_s_seed42.pt",
+    "ckpt_sha256": "e862d01487219e12bd9eb0596f429afc77080cb91e517e63d275f03c2e2bafc9",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.5145525438805902,
+        "cal_net@0.5": 521,
+        "grad_wave": null
+      },
+      {
+        "ep": 1,
+        "loss": 0.4365292744027469,
+        "cal_net@0.5": 523,
+        "grad_wave": null
+      },
+      {
+        "ep": 2,
+        "loss": 0.41873762980387036,
+        "cal_net@0.5": 519,
+        "grad_wave": null
+      },
+      {
+        "ep": 3,
+        "loss": 0.41200321196045187,
+        "cal_net@0.5": 513,
+        "grad_wave": null
+      },
+      {
+        "ep": 4,
+        "loss": 0.4089343136267389,
+        "cal_net@0.5": 537,
+        "grad_wave": null
+      },
+      {
+        "ep": 5,
+        "loss": 0.3974853438837424,
+        "cal_net@0.5": 536,
+        "grad_wave": null
+      },
+      {
+        "ep": 6,
+        "loss": 0.3959915019616361,
+        "cal_net@0.5": 546,
+        "grad_wave": null
+      },
+      {
+        "ep": 7,
+        "loss": 0.3907793854258389,
+        "cal_net@0.5": 550,
+        "grad_wave": null
+      },
+      {
+        "ep": 8,
+        "loss": 0.39427446032900487,
+        "cal_net@0.5": 545,
+        "grad_wave": null
+      },
+      {
+        "ep": 9,
+        "loss": 0.3845584140199119,
+        "cal_net@0.5": 550,
+        "grad_wave": null
+      },
+      {
+        "ep": 10,
+        "loss": 0.3793811720710232,
+        "cal_net@0.5": 551,
+        "grad_wave": null
+      },
+      {
+        "ep": 11,
+        "loss": 0.3803379809946361,
+        "cal_net@0.5": 552,
+        "grad_wave": null
+      },
+      {
+        "ep": 12,
+        "loss": 0.3848057749481364,
+        "cal_net@0.5": 544,
+        "grad_wave": null
+      },
+      {
+        "ep": 13,
+        "loss": 0.37510293008284196,
+        "cal_net@0.5": 568,
+        "grad_wave": null
+      },
+      {
+        "ep": 14,
+        "loss": 0.3731043717219697,
+        "cal_net@0.5": 564,
+        "grad_wave": null
+      },
+      {
+        "ep": 15,
+        "loss": 0.3784184966449173,
+        "cal_net@0.5": 559,
+        "grad_wave": null
+      },
+      {
+        "ep": 16,
+        "loss": 0.368832395817927,
+        "cal_net@0.5": 558,
+        "grad_wave": null
+      },
+      {
+        "ep": 17,
+        "loss": 0.3676204575758498,
+        "cal_net@0.5": 564,
+        "grad_wave": null
+      }
+    ],
+    "n_parameters": 769
+  },
+  "scalar_without_source": {
+    "best_cal_net_at_tau0.5": 728,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_without_source_seed42.pt",
+    "ckpt_sha256": "7accfcc41e70e33ff853fa942e0177ade977bb6cf852257c9ff5ac2d4b47e3ca",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.3335329402533882,
+        "cal_net@0.5": 653,
+        "grad_wave": null
+      },
+      {
+        "ep": 1,
+        "loss": 0.267860110928632,
+        "cal_net@0.5": 667,
+        "grad_wave": null
+      },
+      {
+        "ep": 2,
+        "loss": 0.23849322051784097,
+        "cal_net@0.5": 693,
+        "grad_wave": null
+      },
+      {
+        "ep": 3,
+        "loss": 0.21883493739031284,
+        "cal_net@0.5": 713,
+        "grad_wave": null
+      },
+      {
+        "ep": 4,
+        "loss": 0.21097557139938075,
+        "cal_net@0.5": 712,
+        "grad_wave": null
+      },
+      {
+        "ep": 5,
+        "loss": 0.20160392251025352,
+        "cal_net@0.5": 710,
+        "grad_wave": null
+      },
+      {
+        "ep": 6,
+        "loss": 0.200843422790766,
+        "cal_net@0.5": 723,
+        "grad_wave": null
+      },
+      {
+        "ep": 7,
+        "loss": 0.19602398210913868,
+        "cal_net@0.5": 712,
+        "grad_wave": null
+      },
+      {
+        "ep": 8,
+        "loss": 0.19762612131715718,
+        "cal_net@0.5": 696,
+        "grad_wave": null
+      },
+      {
+        "ep": 9,
+        "loss": 0.19298669809681476,
+        "cal_net@0.5": 728,
+        "grad_wave": null
+      },
+      {
+        "ep": 10,
+        "loss": 0.19367755499435582,
+        "cal_net@0.5": 716,
+        "grad_wave": null
+      },
+      {
+        "ep": 11,
+        "loss": 0.1954045405172867,
+        "cal_net@0.5": 718,
+        "grad_wave": null
+      },
+      {
+        "ep": 12,
+        "loss": 0.1947704891494005,
+        "cal_net@0.5": 709,
+        "grad_wave": null
+      },
+      {
+        "ep": 13,
+        "loss": 0.19501698109336846,
+        "cal_net@0.5": 712,
+        "grad_wave": null
+      }
+    ],
+    "n_parameters": 769
+  },
+  "scalar_without_resid_s_and_source": {
+    "best_cal_net_at_tau0.5": 566,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_without_resid_s_and_source_seed42.pt",
+    "ckpt_sha256": "02da2746e4b4a623850767eb646cdea223094009323456a43285b4998b180bf1",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.5617259979319055,
+        "cal_net@0.5": 460,
+        "grad_wave": null
+      },
+      {
+        "ep": 1,
+        "loss": 0.4413832253909964,
+        "cal_net@0.5": 539,
+        "grad_wave": null
+      },
+      {
+        "ep": 2,
+        "loss": 0.41999386367765545,
+        "cal_net@0.5": 538,
+        "grad_wave": null
+      },
+      {
+        "ep": 3,
+        "loss": 0.4120297803199458,
+        "cal_net@0.5": 550,
+        "grad_wave": null
+      },
+      {
+        "ep": 4,
+        "loss": 0.40597317128879895,
+        "cal_net@0.5": 548,
+        "grad_wave": null
+      },
+      {
+        "ep": 5,
+        "loss": 0.40190448629970577,
+        "cal_net@0.5": 554,
+        "grad_wave": null
+      },
+      {
+        "ep": 6,
+        "loss": 0.3964045833126827,
+        "cal_net@0.5": 566,
+        "grad_wave": null
+      },
+      {
+        "ep": 7,
+        "loss": 0.39488992579824966,
+        "cal_net@0.5": 561,
+        "grad_wave": null
+      },
+      {
+        "ep": 8,
+        "loss": 0.3901953059410372,
+        "cal_net@0.5": 551,
+        "grad_wave": null
+      },
+      {
+        "ep": 9,
+        "loss": 0.3868617904486114,
+        "cal_net@0.5": 559,
+        "grad_wave": null
+      },
+      {
+        "ep": 10,
+        "loss": 0.38582957814426255,
+        "cal_net@0.5": 530,
+        "grad_wave": null
+      }
+    ],
+    "n_parameters": 769
+  },
+  "waveform_plus_scalar_without_resid_s": {
+    "best_cal_net_at_tau0.5": 611,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_waveform_plus_scalar_without_resid_s_seed42.pt",
+    "ckpt_sha256": "f459a596c1b9124550c2e39fd22ab6183313c25215ae25d3c81c625f5583a919",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.415865757535825,
+        "cal_net@0.5": 559,
+        "grad_wave": 42.47812885046005
+      },
+      {
+        "ep": 1,
+        "loss": 0.3621300688861723,
+        "cal_net@0.5": 565,
+        "grad_wave": 16.588625069707632
+      },
+      {
+        "ep": 2,
+        "loss": 0.35020851790832885,
+        "cal_net@0.5": 585,
+        "grad_wave": 12.896510850638151
+      },
+      {
+        "ep": 3,
+        "loss": 0.34230965500068417,
+        "cal_net@0.5": 572,
+        "grad_wave": 65.0414727255702
+      },
+      {
+        "ep": 4,
+        "loss": 0.3351768531682906,
+        "cal_net@0.5": 600,
+        "grad_wave": 1.032697324641049
+      },
+      {
+        "ep": 5,
+        "loss": 0.3301060886956459,
+        "cal_net@0.5": 591,
+        "grad_wave": 27.863754212856293
+      },
+      {
+        "ep": 6,
+        "loss": 0.32275993227725946,
+        "cal_net@0.5": 591,
+        "grad_wave": 7.635854035615921
+      },
+      {
+        "ep": 7,
+        "loss": 0.3144252459737229,
+        "cal_net@0.5": 601,
+        "grad_wave": 305.0934374332428
+      },
+      {
+        "ep": 8,
+        "loss": 0.3103774749436683,
+        "cal_net@0.5": 595,
+        "grad_wave": 46.49028840661049
+      },
+      {
+        "ep": 9,
+        "loss": 0.30314931390105676,
+        "cal_net@0.5": 583,
+        "grad_wave": 60.25959898531437
+      },
+      {
+        "ep": 10,
+        "loss": 0.2923721694830119,
+        "cal_net@0.5": 611,
+        "grad_wave": 189.81566733121872
+      },
+      {
+        "ep": 11,
+        "loss": 0.2824380793141619,
+        "cal_net@0.5": 581,
+        "grad_wave": 1.6741646314039826
+      },
+      {
+        "ep": 12,
+        "loss": 0.27297007598867884,
+        "cal_net@0.5": 589,
+        "grad_wave": 3.407541270367801
+      },
+      {
+        "ep": 13,
+        "loss": 0.25284083534121266,
+        "cal_net@0.5": 579,
+        "grad_wave": 171.96759885549545
+      },
+      {
+        "ep": 14,
+        "loss": 0.22592940638848188,
+        "cal_net@0.5": 568,
+        "grad_wave": 0.021102336759213358
+      }
+    ],
+    "n_parameters": 40577
+  },
+  "waveform_plus_scalar_without_source": {
+    "best_cal_net_at_tau0.5": 740,
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_waveform_plus_scalar_without_source_seed42.pt",
+    "ckpt_sha256": "af5efc681da4e27230acb0766a6f154724207f3af389c286fdfadd3d9c11f7f9",
+    "hist": [
+      {
+        "ep": 0,
+        "loss": 0.3140920452689492,
+        "cal_net@0.5": 644,
+        "grad_wave": 95.26366353034973
+      },
+      {
+        "ep": 1,
+        "loss": 0.25068643106002886,
+        "cal_net@0.5": 671,
+        "grad_wave": 29.011188000440598
+      },
+      {
+        "ep": 2,
+        "loss": 0.22059343108689586,
+        "cal_net@0.5": 713,
+        "grad_wave": 42.775401413440704
+      },
+      {
+        "ep": 3,
+        "loss": 0.19539701203290527,
+        "cal_net@0.5": 724,
+        "grad_wave": 1.2364815156906843
+      },
+      {
+        "ep": 4,
+        "loss": 0.1867536617117539,
+        "cal_net@0.5": 736,
+        "grad_wave": 18.88975889980793
+      },
+      {
+        "ep": 5,
+        "loss": 0.1833320529750356,
+        "cal_net@0.5": 731,
+        "grad_wave": 22.727853789925575
+      },
+      {
+        "ep": 6,
+        "loss": 0.1758726268540416,
+        "cal_net@0.5": 717,
+        "grad_wave": 1.1567705059424043
+      },
+      {
+        "ep": 7,
+        "loss": 0.1716521833256069,
+        "cal_net@0.5": 727,
+        "grad_wave": 7.995643459260464
+      },
+      {
+        "ep": 8,
+        "loss": 0.16592642943102062,
+        "cal_net@0.5": 740,
+        "grad_wave": 0.7629738915711641
+      },
+      {
+        "ep": 9,
+        "loss": 0.16490496767113322,
+        "cal_net@0.5": 726,
+        "grad_wave": 7.295956883579493
+      },
+      {
+        "ep": 10,
+        "loss": 0.1566355285504708,
+        "cal_net@0.5": 722,
+        "grad_wave": 0.013034611511102412
+      },
+      {
+        "ep": 11,
+        "loss": 0.15312966751689527,
+        "cal_net@0.5": 695,
+        "grad_wave": 56.22747699916363
+      },
+      {
+        "ep": 12,
+        "loss": 0.1479752772484308,
+        "cal_net@0.5": 674,
+        "grad_wave": 0.027212199001951376
+      }
+    ],
+    "n_parameters": 40577
+  },
+  "scalar_pairwise": {
+    "ckpt": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_pairwise_seed42.pt",
+    "ckpt_sha256": "7f0d1caae205fcfddc9981609a18bda33f31d9881953a2d93dc1ef55ee4fdaea",
+    "reused": true
+  }
+}

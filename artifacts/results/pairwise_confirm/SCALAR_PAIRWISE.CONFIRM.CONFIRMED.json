@@ -1,0 +1,178 @@
+{
+  "status": "CONFIRMED",
+  "interpretation": "PAIRWISE CONFIRMED: scalar pairwise improved over both the fixed rescoring baseline and the residual-only control on the held-out confirm set (catalog-assisted S-phase candidate re-picking / reranking).",
+  "coverage": {
+    "n_traces": 43090,
+    "n_events": 2669,
+    "n_S_labels": 43090,
+    "n_with_candidates": 43090,
+    "n_with_2plus_candidates": 27560
+  },
+  "fixed": {
+    "f1@0.1": 0.5034578788582038,
+    "f1@0.5": 0.8373172429798097,
+    "precision@0.1": 0.5034578788582038,
+    "recall@0.1": 0.5034578788582038,
+    "precision@0.5": 0.8373172429798097,
+    "recall@0.5": 0.8373172429798097,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.1,
+    "detected_ae_p95": 2.4654999999999565,
+    "detected_ae_mae": 1.917768623810629,
+    "frac_err_gt_1s": 0.09417498259456951,
+    "frac_err_gt_5s": 0.040751914597354374,
+    "frac_err_gt_10s": 0.03532142028312834,
+    "frac_err_gt_30s": 0.022093293107449525
+  },
+  "resid": {
+    "f1@0.1": 0.510837781387793,
+    "f1@0.5": 0.8458575075423532,
+    "precision@0.1": 0.510837781387793,
+    "recall@0.1": 0.510837781387793,
+    "precision@0.5": 0.8458575075423532,
+    "recall@0.5": 0.8458575075423532,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.1,
+    "detected_ae_p95": 2.12,
+    "detected_ae_mae": 1.775238106289162,
+    "frac_err_gt_1s": 0.08751450452541193,
+    "frac_err_gt_5s": 0.037247621257832444,
+    "frac_err_gt_10s": 0.03207240659085635,
+    "frac_err_gt_30s": 0.020399164539336274,
+    "delta_f1@0.5_vs_fixed": 0.008540264562543531
+  },
+  "scalar": {
+    "f1@0.1": 0.5277326525876074,
+    "f1@0.5": 0.8534926897191923,
+    "precision@0.1": 0.5277326525876074,
+    "recall@0.1": 0.5277326525876074,
+    "precision@0.5": 0.8534926897191923,
+    "recall@0.5": 0.8534926897191923,
+    "miss_rate": 0.0,
+    "detected_ae_median": 0.1,
+    "detected_ae_p95": 1.85,
+    "detected_ae_mae": 1.195485031329775,
+    "frac_err_gt_1s": 0.08217683917382224,
+    "frac_err_gt_5s": 0.03274541656996983,
+    "frac_err_gt_10s": 0.026386632629380367,
+    "frac_err_gt_30s": 0.011882107217451844,
+    "n_eligible_pairs": 27560,
+    "n_switch": 11537,
+    "switch_rate": 0.267741935483871,
+    "fixes": 907,
+    "breaks": 210,
+    "net_fixes": 697,
+    "switch_precision": 0.8119964189794091,
+    "Q1_count": 18970,
+    "Q2_count": 1173,
+    "Q1_break_rate": 0.01107011070110701,
+    "Q2_recovery_rate": 0.773231031543052,
+    "both_correct": 17110,
+    "both_wrong": 5837,
+    "tau": 0.5,
+    "delta_f1@0.5_vs_fixed": 0.01617544673938265,
+    "delta_f1@0.1_vs_fixed": 0.024274773729403565,
+    "delta_f1@0.5_vs_resid": 0.007635182176839117,
+    "delta_f1@0.1_vs_resid": 0.016894871199814365,
+    "delta_p95_vs_fixed": -0.6154999999999564
+  },
+  "bootstrap_vs_fixed": {
+    "n_boot": 5000,
+    "seed": 20260817,
+    "n_events": 2669,
+    "delta_f1@0.5": {
+      "mean": 0.016163862273741388,
+      "ci95": [
+        0.01456127724079393,
+        0.01780921305127694
+      ]
+    },
+    "delta_f1@0.1": {
+      "mean": 0.02420995137086001,
+      "ci95": [
+        0.021147463398915455,
+        0.02724812324823309
+      ]
+    },
+    "delta_p95": {
+      "mean": -0.6390392999999979,
+      "ci95": [
+        -0.8925624999999998,
+        -0.47
+      ]
+    }
+  },
+  "bootstrap_vs_resid": {
+    "n_boot": 5000,
+    "seed": 20260817,
+    "n_events": 2669,
+    "delta_f1@0.5": {
+      "mean": 0.007632411520812627,
+      "ci95": [
+        0.006464639853055701,
+        0.008829127388887319
+      ]
+    },
+    "delta_f1@0.1": {
+      "mean": 0.016849520745569127,
+      "ci95": [
+        0.013967396623734876,
+        0.019657090159692144
+      ]
+    },
+    "delta_p95": {
+      "mean": -0.2747185999999993,
+      "ci95": [
+        -0.3700000000000001,
+        -0.18999999999999995
+      ]
+    }
+  },
+  "effect_replication": [
+    {
+      "split": "pilot-heldout",
+      "fixed": 0.9196,
+      "resid": 0.935,
+      "scalar": 0.9403,
+      "scalar-fixed": 0.0207,
+      "scalar-resid": 0.005255850852836197,
+      "ratio_scalar_fixed_vs_fulldev": 1.510948905109489,
+      "ratio_scalar_fixed_vs_heldout": 1.0,
+      "ratio_scalar_resid_vs_fulldev": 0.7199795688816708,
+      "ratio_scalar_resid_vs_heldout": 1.0
+    },
+    {
+      "split": "phaseB-full-dev",
+      "fixed": 0.8668,
+      "resid": 0.8732,
+      "scalar": 0.8805,
+      "scalar-fixed": 0.0137,
+      "scalar-resid": 0.0073,
+      "ratio_scalar_fixed_vs_fulldev": 1.0,
+      "ratio_scalar_fixed_vs_heldout": 0.6618357487922706,
+      "ratio_scalar_resid_vs_fulldev": 1.0,
+      "ratio_scalar_resid_vs_heldout": 1.388928301886787
+    },
+    {
+      "split": "confirm",
+      "fixed": 0.8373172429798097,
+      "resid": 0.8458575075423532,
+      "scalar": 0.8534926897191923,
+      "scalar-fixed": 0.01617544673938265,
+      "scalar-resid": 0.007635182176839117,
+      "ratio_scalar_fixed_vs_fulldev": 1.1806895430206312,
+      "ratio_scalar_fixed_vs_heldout": 0.7814225477962632,
+      "ratio_scalar_resid_vs_fulldev": 1.04591536669029,
+      "ratio_scalar_resid_vs_heldout": 1.4527014541744405
+    }
+  ],
+  "method_lock_hash": "1fb09af7ebd96bb0a71f4b4af91313d8ed10410b96f4aeb0616a813d3725a75b",
+  "execution_lock_hash": "0839e1a8f70123c196867f1d2da417e9f913d8359e917c557959b9848f620a15",
+  "confirm_is_evaluation_only": true,
+  "elapsed_s": 112.01129865646362,
+  "device": "cuda:0",
+  "n_boot": 5000,
+  "margin_mechanism_note": "post-hoc only; low-margin bins typically carry larger Δ vs fixed; must not redefine confirm method",
+  "support_scalar_as_final_main_method": true,
+  "auto_next_stage": false
+}

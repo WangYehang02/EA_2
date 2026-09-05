@@ -1,0 +1,12 @@
+{
+  "figure": "figure1_method_flow",
+  "script": "scripts/build_final_paper_figures.py",
+  "timestamp_utc": "2026-09-04T13:48:37Z",
+  "sources": [
+    {
+      "artifact": "SCALAR_PAIRWISE.FULLDEV_METHOD_LOCK.json",
+      "role": "method definition"
+    }
+  ],
+  "notes": "Structural figure description only; not a network architecture diagram."
+}

@@ -1,0 +1,6 @@
+method,delta_f1@0.5,note
+hard_ring,0.007831,abstain
+soft_ring,0.002359868488882255,small
+moveout_legal,0.005624735087578658,NO-GO
+waveform_only,0.008197805103794753,isolation
+waveform+scalar_vs_scalar,0.00046277932037552816,CI crosses 0

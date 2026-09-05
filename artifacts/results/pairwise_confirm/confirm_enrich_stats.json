@@ -1,0 +1,14 @@
+{
+  "n_manifest_traces": 43090,
+  "n_events": 2669,
+  "n_scored_traces": 43090,
+  "n_candidates": 76592,
+  "lw": 0.5,
+  "lh": 2.0,
+  "lp": 0.0,
+  "scoring": "stage6_rescore_phase_candidates+attach_expected_s",
+  "n_pairs": 43090,
+  "n_ge2": 27560,
+  "c1_vs_frozen_fixed_agree": 1.0,
+  "n_disagree": 0
+}

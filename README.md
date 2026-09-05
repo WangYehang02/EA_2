@@ -1,24 +1,123 @@
-# Earthquake: PhaseNet + Historical Path Prior Fusion
+# EA_2：Catalog-assisted S-phase Candidate Reranking
 
-## Current stage conclusion (1.5)
+本仓库对应 GitHub 项目 [WangYehang02/EA_2](https://github.com/WangYehang02/EA_2)。
 
-> 历史路径先验在已知当前事件震源位置和发震时刻的 **catalog-assisted** 场景中，能够提供明显优于当前外部 PhaseNet 的粗粒度到时估计。但当前 PhaseNet 推理链路或域适配仍存在问题，且历史先验尚未达到精确拾取要求，因此暂不能证明最终融合模型有效。
+## 工作一句话
 
-注意：catalog-assisted 历史结果 **不是** blind phase picking，因为它使用了当前事件震源区域、深度、origin time 以及台站对应关系。
+在 **已知 catalog 震源/发震信息** 的设定下，对 base picker 给出的 **冻结 UNION S 候选** 做 **候选重排序（reranking）**，而不是训练一个新的 blind / end-to-end phase picker。
 
-### Diagnosed root cause of ~20–27 s MAE
+**最终主方法：`scalar_pairwise`（scalar pairwise reranker）**  
+状态：confirm **CONFIRMED**；证据包 **FINAL_EVIDENCE.LOCKED**
 
-Previous STEAD MAE was **not** primarily domain shift. Custom sliding-window evaluation treated prediction sample 0 as waveform sample 0, while official `annotate()` shifts `starttime` by ~+2.5 s and returns ~11500 samples on a 12000-sample input. After **UTC remapping**, custom wrapper ≡ official annotate (0 sample difference); STEAD median AE falls to ~0.06 s on the 512-trace diagnostic set. Residual domain gap remains (INSTANCE diagnostic weight is better but labeled `diagnostic_only_data_leakage`).
+> The proposed method does not generate new phase candidates; it reranks the two highest-scoring S-phase candidates from a frozen candidate set.
 
-### Debug finetune status
+---
 
-- Soft labels must follow SeisBench STEAD `labels=PSN` (not default class `NPS`).
-- Keep BatchNorm in `eval()` while training weights; updating BN running stats on 3001-sample crops breaks full-trace `annotate()`.
-- With those fixes, train/val loss decreases, but 5-epoch debug finetune did **not** beat UTC-aligned STEAD on annotate F1; `checkpoints/best.pt` remains the pretrained STEAD init.
-- Full finetune config prepared only: `configs/phasenet_finetune_full.yaml` (not auto-started).
-- Working PhaseNet for fusion remains **UTC-aligned STEAD annotate**.
+## 任务边界（必须先读）
 
-## Environment
+| 是 | 不是 |
+| --- | --- |
+| catalog-assisted S-phase **candidate reranking** | blind phase picking |
+| 在已有候选中 **select** c1/c2 | end-to-end picker / 新生成到时 |
+| 单台候选重排 | continuous detector |
+| 相对 fixed + residual control 的确认增益 | multi-station SOTA picker claim |
+
+---
+
+## 最终主方法
+
+1. Base pickers → **UNION** S candidates（冻结）  
+2. `fixed_score`（lw=0.5, lh=2, lp=0）→ **c1 / c2**  
+3. **scalar pairwise** 比较 c1 vs c2，阈值 **τ=0.50**  
+4. 输出只能是 c1 或 c2；候选不足 2 个时输出 c1  
+5. 禁止：abstain、选 rank≥3、生成新 pick、改 arrival time
+
+方法角色说明（为什么有 baseline / control / 消融）：  
+[`reports/paper/tables/METHOD_TABLE.md`](reports/paper/tables/METHOD_TABLE.md)
+
+---
+
+## Confirm 主结果（frozen）
+
+覆盖：n = **43090** traces，**2669** events，≥2 candidates = **27560**
+
+| Method | F1@0.5 | Δ vs fixed | Δ vs resid |
+| --- | ---: | ---: | ---: |
+| fixed_rescore_UNION | 0.8373 | — | −0.0085 |
+| resid_s control | 0.8459 | +0.0085 | — |
+| **scalar_pairwise** | **0.8535** | **+0.0162** | **+0.0076** |
+
+Event bootstrap 5000：
+
+- scalar vs fixed：mean +0.0162，95% CI **[+0.0146, +0.0178]**  
+- scalar vs resid：mean +0.0076，95% CI **[+0.0065, +0.0088]**
+
+跨 split replication（F1@0.5）：
+
+| Split | Fixed | Resid | Scalar | S−F | S−R |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| held-out | 0.9196 | 0.9350 | 0.9403 | +0.0207 | +0.0053 |
+| full-dev | 0.8668 | 0.8732 | 0.8805 | +0.0137 | +0.0073 |
+| confirm | 0.8373 | 0.8459 | 0.8535 | +0.0162 | +0.0076 |
+
+完整表图与 claim 边界：
+
+- 结果总表：[`reports/paper/tables/RESULTS_TABLES.md`](reports/paper/tables/RESULTS_TABLES.md)  
+- 方法表：[`reports/paper/tables/METHOD_TABLE.md`](reports/paper/tables/METHOD_TABLE.md)  
+- Evidence ledger：[`reports/paper/final_evidence_ledger.md`](reports/paper/final_evidence_ledger.md)  
+- Claim audit：[`reports/paper/final_claim_audit.md`](reports/paper/final_claim_audit.md)  
+- 术语锁：[`reports/paper/TERMINOLOGY_LOCK.md`](reports/paper/TERMINOLOGY_LOCK.md)  
+- 信息访问 / leakage：[`reports/paper/information_access_statement.md`](reports/paper/information_access_statement.md)
+
+---
+
+## 为什么还有很多“别的方法”
+
+它们不是并列主方法，而是实验链条上的角色：
+
+```text
+fixed baseline
+  → residual control（简单物理先验能否解释增益？）
+    → scalar_pairwise（学习 pairwise 是否还有额外增益？）← 主方法
+      → geometry / waveform ablations（更复杂信息有无条件增益？）
+```
+
+负结果摘要：hard-ring abstain 不兼容 always-output；moveout ≈ 单台 residual；waveform 条件增量不显著。
+
+---
+
+## 仓库里上传了什么结果
+
+为便于复现论文数字，本仓库上传了 **冻结证据包**（JSON/CSV/MD/图/锁文件），**不**上传大体量 waveform cache / parquet / npy：
+
+| 路径 | 内容 |
+| --- | --- |
+| `artifacts/results/final_evidence/` | FINAL_EVIDENCE_LOCK、audit、表图 |
+| `artifacts/results/pairwise_confirm/` | confirm 主结果、bootstrap、CONFIRMED 锁 |
+| `artifacts/results/pairwise_fulldev/` | full-dev PASSED + method lock |
+| `artifacts/results/pairwise_pilot/` | held-out ablation + 主 checkpoint（小） |
+| `artifacts/results/multistation_*` | soft-ring / moveout 负结果关键汇总 |
+| `reports/paper/` | 论文素材（表、图、claim、术语） |
+| `reports/pairwise/`、`reports/multistation/` | 阶段报告 |
+
+锁定哈希（以仓库内文件为准）：
+
+- Full-dev method lock：`1fb09af7ebd96bb0a71f4b4af91313d8ed10410b96f4aeb0616a813d3725a75b`  
+- Confirm execution lock：`0839e1a8f70123c196867f1d2da417e9f913d8359e917c557959b9848f620a15`
+
+本地核验：
+
+```bash
+conda activate PS
+cd /path/to/Earthquake
+python scripts/audit_final_evidence.py
+python scripts/build_final_paper_tables.py
+python scripts/build_final_paper_figures.py
+```
+
+---
+
+## 环境
 
 ```bash
 conda activate PS
@@ -27,75 +126,13 @@ pip install -e .
 export INSTANCE_ROOT=/mnt/yehang/PSdetec/INSTANCE
 ```
 
-## Stage 1.5 diagnostic pipeline
+完整数据与大规模 cache 仍需本地 `INSTANCE_ROOT`；GitHub 上是 **代码 + 冻结结果证据**，不是完整波形库。
 
-```bash
-# 1) Align custom wrapper vs official annotate (must agree within 1 sample)
-python scripts/diagnose_phasenet_alignment.py --n-traces 512 --weight stead
+---
 
-# 2) Compare pretrained weights (instance = diagnostic only)
-python scripts/compare_pretrained_weights.py --weights stead ethz scedc instance
+## 早期阶段说明
 
-# 3) Fixed eval set (>=10k events + >=2k noise)
-python scripts/build_fixed_eval_set.py --n-events-traces 10000 --n-noise 2000
+仓库仍保留 PhaseNet / path-prior / multistation 早期诊断与工程脚本。  
+**论文主线以 scalar pairwise confirm 为准**；早期 Stage 1.5 诊断结论不要覆盖最终主方法声明。
 
-# 4) Debug finetune (only if alignment + instance diagnostic pass)
-python scripts/finetune_phasenet.py --config configs/phasenet_finetune_debug.yaml
-python scripts/evaluate_finetuned_phasenet.py
-
-# 5) Re-run fusion / shuffle / distance-bin baselines
-python scripts/reeval_fusion_stage15.py --max-traces 2000
-
-pytest -q
-```
-
-Full finetune config is prepared but not auto-started: `configs/phasenet_finetune_full.yaml`.
-
-## Pick matching protocol (Stage 2)
-
-Single-peak protocol (one prediction per trace):
-
-- **TP@w**: label present, prediction present, `|pred−true| ≤ w`
-- **FP@w**: prediction present and not TP (wrong peak beyond tolerance, or prediction without label)
-- **FN@w**: label present and not TP (missed pick, or wrong peak beyond tolerance)
-- A prediction outside tolerance is **never** TP and is not double-counted as two FPs.
-
-Timing metrics (names matter):
-
-- **e2e MAE / e2e P95**: absolute error on all labeled traces that also have a prediction (includes catastrophic wrong peaks; this is why median≪MAE/P95)
-- **matched-timing MAE / P95**: absolute error only on TP@tolerance (usually 0.5s)
-
-Multi-peak ceiling: success if **any** of K PhaseNet candidates falls within tolerance of the label.
-
-## Stage 2 pipeline
-
-```bash
-python scripts/audit_pick_metrics.py --config configs/fusion_fixed.yaml --device cuda
-python scripts/fit_travel_time_baseline.py --config configs/fusion_fixed.yaml
-python scripts/build_residual_history.py --config configs/fusion_fixed.yaml --protocol frozen
-python scripts/evaluate_candidate_rescoring.py --config configs/fusion_fixed.yaml
-python scripts/bootstrap_significance.py --config configs/fusion_fixed.yaml --n-bootstrap 2000
-python scripts/analyze_hard_cases.py --config configs/fusion_fixed.yaml
-pytest -q
-```
-
-Catalog-assisted residual re-scoring is **not** blind picking. Blind-S uses PhaseNet P candidates + historical Δ(S−P) only (no current origin time).
-
-## Stage 3: learned scalar gate (S-only catalog-assisted repicking)
-
-Model role: **catalog-assisted S-phase repicking/refinement** — re-ranks existing PhaseNet S candidates with an interpretable `gate_s` (1=PhaseNet, 0=history). Not a standalone continuous detector. P stays PhaseNet. Noise bypasses the gate.
-
-```bash
-python scripts/audit_stage3_splits.py
-python scripts/build_gate_dataset.py --config configs/gate_debug.yaml
-python scripts/compute_candidate_oracle.py --config configs/gate_debug.yaml
-python scripts/train_learned_gate.py --config configs/gate_debug.yaml --seed 42
-python scripts/evaluate_learned_gate.py --config configs/gate_debug.yaml --seed 42
-python scripts/bootstrap_gate.py --config configs/gate_debug.yaml --n-bootstrap 2000
-python scripts/analyze_gate_behavior.py --config configs/gate_debug.yaml
-python scripts/plot_gate_cases.py --config configs/gate_debug.yaml
-pytest -q
-```
-
-Formal catalog configs: `configs/gate_catalog.yaml` (3 seeds 42/123/2026). Blind-S: `configs/gate_blind_s.yaml` (trained/evaluated separately).
-Use `artifacts/diagnostics/fixed_eval_test_only_*` for Stage-3 test (original fixed list mixed val+test; not overwritten).
+更细的中文讲解要点：[`reports/paper/方法介绍与讲解要点.md`](reports/paper/方法介绍与讲解要点.md)

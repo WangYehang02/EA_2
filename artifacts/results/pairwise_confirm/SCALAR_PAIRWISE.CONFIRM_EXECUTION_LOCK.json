@@ -1,0 +1,89 @@
+{
+  "confirm_is_evaluation_only": true,
+  "declaration": "confirm is evaluation-only; no parameter selection is allowed",
+  "method_definition_source": "SCALAR_PAIRWISE.FULLDEV_METHOD_LOCK.json",
+  "method_lock_hash": "1fb09af7ebd96bb0a71f4b4af91313d8ed10410b96f4aeb0616a813d3725a75b",
+  "method_lock_path": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_fulldev/SCALAR_PAIRWISE.FULLDEV_METHOD_LOCK.json",
+  "timestamp_utc": "2026-09-04T13:16:30Z",
+  "git_commit": "73dac37ac98faeb5be1af46e2a72606e6fc1c639",
+  "checkpoint_path": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_pilot/ckpt_scalar_pairwise_seed42.pt",
+  "checkpoint_sha256": "7f0d1caae205fcfddc9981609a18bda33f31d9881953a2d93dc1ef55ee4fdaea",
+  "scalar_feature_names": [
+    "prob",
+    "stead_prob",
+    "ida_prob",
+    "fixed_score",
+    "resid_s",
+    "resid_sp",
+    "delta_sp",
+    "src_stead",
+    "src_ida",
+    "src_both"
+  ],
+  "scalar_feature_schema_hash": "5e20b6fcb267c4904f6e8743bb2d8353209e892abb77f526119a7cf9ccd14492",
+  "c1_c2_definition": {
+    "c1": "argmax fixed_score",
+    "c2": "second by fixed_score",
+    "tie_break": "candidate_index ascending",
+    "forbidden": [
+      "true_S",
+      "true_P",
+      "STEAD_rank",
+      "IDA_rank",
+      "fulldev_label"
+    ],
+    "lt2_candidates": "prediction=c1"
+  },
+  "tau": 0.5,
+  "fixed_score": {
+    "lw": 0.5,
+    "lh": 2.0,
+    "lp": 0.0
+  },
+  "residual_control": {
+    "lambda": 1.0,
+    "sigma_s": 0.5
+  },
+  "metric_implementation_path": "/home/yehang/yehang/Earthquake/src/earthquake/metrics.py",
+  "metric_implementation_sha256": "a434c55a354785357de9327fc4bc3bc8600fe45c4bb8428b3a8609c632e6b18a",
+  "confirm_manifest_path": "/home/yehang/yehang/Earthquake/artifacts/results/stage6/final_confirm/confirm_s_eval_manifest.csv",
+  "confirm_manifest_sha256": "729681037c4d28d1208c29a13c05ffb987cc4cbfa7361a897287fe1227f63543",
+  "confirm_union_path": "/home/yehang/yehang/Earthquake/artifacts/results/stage6/final_confirm/confirm_union.parquet",
+  "confirm_union_sha256": "6f293c8e2077e6c782acc34b6510f1d3994fe47e00e0c42e7e60d4023bda74ec",
+  "confirm_history_path": "/home/yehang/yehang/Earthquake/artifacts/results/stage6/final_confirm/confirm_history_features.parquet",
+  "confirm_history_sha256": "49276344f8dc65bcee1d3a6c9e0c48d039ac46d11e80a2bc22dad2839d609d54",
+  "confirm_frozen_predictions_path": "/home/yehang/yehang/Earthquake/artifacts/results/stage6/final_confirm/confirm_predictions.parquet",
+  "confirm_frozen_predictions_sha256": "0ce3e3b9e04401e16a4d9bb912796096b2adbfd292aeab7d53e55b34e22bbf20",
+  "confirm_artifact_provenance": {
+    "stage6_final_confirm_dir": "/home/yehang/yehang/Earthquake/artifacts/results/stage6/final_confirm",
+    "CONFIRM.CONSUMED_present": true,
+    "note": "Stage-6 historical confirm already consumed for fixed_rescore_UNION; this lock is a separate pairwise confirm evaluation reading frozen artifacts only"
+  },
+  "scoring_implementation": "stage6 attach_expected_s + rescore_phase_candidates (locked lambdas)",
+  "bootstrap": {
+    "n": 5000,
+    "seed": 20260817,
+    "unit": "event"
+  },
+  "forbidden": [
+    "retrain",
+    "recalibrate_tau",
+    "retune_resid",
+    "change_features",
+    "change_c1_c2",
+    "waveform",
+    "auto_next_stage"
+  ],
+  "environment": {
+    "python": "3.11.15 | packaged by conda-forge | (main, Aug 11 2026, 10:26:29) [GCC 14.4.0]",
+    "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.43"
+  },
+  "fulldev_reference_preregistered": {
+    "fixed_f1@0.5": 0.8668,
+    "resid_f1@0.5": 0.8732,
+    "scalar_f1@0.5": 0.8805,
+    "delta_fixed": 0.0137,
+    "delta_resid": 0.0073
+  },
+  "execution_lock_body_sha256": "0839e1a8f70123c196867f1d2da417e9f913d8359e917c557959b9848f620a15"
+}

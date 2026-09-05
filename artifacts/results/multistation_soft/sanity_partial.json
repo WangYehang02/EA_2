@@ -1,0 +1,6 @@
+{
+  "lambda0_equals_baseline_sample": true,
+  "lambda0_matches_frozen_npy": true,
+  "no_neighbor_unchanged": true,
+  "always_from_union_set": true
+}

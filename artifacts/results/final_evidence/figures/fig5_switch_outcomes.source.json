@@ -1,0 +1,12 @@
+{
+  "figure": "fig5_switch_outcomes",
+  "script": "scripts/build_final_paper_figures.py",
+  "timestamp_utc": "2026-09-04T13:48:39Z",
+  "sources": [
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/pairwise_confirm/confirm_scalar_metrics.json",
+      "sha256": "946ecae9bed218e0ca8aa2885ca2fe455fb50692ec6e4237c7f0727e347e63c1"
+    }
+  ],
+  "notes": ""
+}

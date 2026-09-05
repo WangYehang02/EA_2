@@ -1,0 +1,15 @@
+{
+  "lambda0_equals_baseline": true,
+  "lambda0_matches_frozen_npy": true,
+  "no_neighbor_unchanged": true,
+  "always_from_union_set": true,
+  "loo_n_neighbors_is_n_minus_1": true,
+  "train_only_tt_no_phaseB_fit": true,
+  "confirm_untouched": true,
+  "stage6_lock_untouched": true,
+  "shuffle_event_delta": 0.005372710297503969,
+  "shuffle_resid_delta": 0.005372710297503969,
+  "shuffle_note": "shuffle_event/resid barely reduced ΔF1; gain largely single-station |resid_s| vs T_S_hat",
+  "single_station_resid_control_delta_f1@0.5": 0.006930681727057131,
+  "moveout_vs_singlestation_agree": 0.9828966812917416
+}

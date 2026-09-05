@@ -1,0 +1,12 @@
+{
+  "figure": "fig2_rank_distribution",
+  "script": "scripts/build_final_paper_figures.py",
+  "timestamp_utc": "2026-09-04T13:48:37Z",
+  "sources": [
+    {
+      "artifact": "/home/yehang/yehang/Earthquake/artifacts/results/multistation_moveout/ranking_gap_rank_distribution.json",
+      "sha256": "3a1ac67d6fc05d05f017b3c440f684f17c3f4fa61fc9cbe433790424220f225d"
+    }
+  ],
+  "notes": "Among ranking-recoverable errors only; not all S errors."
+}
