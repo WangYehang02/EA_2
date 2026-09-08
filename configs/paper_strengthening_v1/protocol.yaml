@@ -1,0 +1,69 @@
+# paper_strengthening_v1 protocol (frozen BEFORE looking at new external test)
+
+task: catalog-assisted S-phase candidate reranking
+candidate_generator: frozen STEAD/IDA UNION
+c1_c2_rule: "argmax/second fixed_score(lw=0.5,lh=2,lp=0); tie->candidate_index"
+scalar_checkpoint: artifacts/results/pairwise_pilot/ckpt_scalar_pairwise_seed42.pt
+scalar_tau: 0.50
+output_rule: "select c1 or c2 only; if n_candidates<2 output c1"
+no_abstain: true
+no_new_candidates: true
+no_arrival_edit: true
+
+information_access:
+  allowed_inference:
+    - waveform_derived_candidate_probs
+    - train_only_travel_time_history
+    - catalog_assisted_current_event_source_origin
+    - fixed_score_and_scalar_features
+  forbidden:
+    - true_S_as_feature
+    - true_P_as_feature
+    - neighbor_true_picks
+    - confirm_derived_parameters
+    - test_time_history_update
+
+methods:
+  A: fixed_rescore_UNION  # always c1
+  B: resid_s_control      # lam=1, sigma=0.5 on resid_s; c1/c2 only
+  C: base_tau_as_expected_grid  # see configs below; MAIN compare restricted to c1/c2
+  D: linear_pairwise_no_intercept
+  E: frozen_scalar_pairwise
+
+C_grid_pre_registered:  # 20 configs; wave_lw always 0.5; selection BEFORE new test
+  sigma_s_seconds: [0.25, 0.5, 1.0, 2.0]
+  lambda_history: [0.0, 0.5, 1.0, 2.0, 4.0]
+  # order for tie-break: nested loops sigma outer, lambda inner as listed
+
+D_search_pre_registered:
+  C_values: [0.01, 0.1, 1.0, 10.0]
+  tau_values: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+  form: "sigmoid(w^T (x2-x1)); no intercept"
+  standardize: train_only
+  train_supervision: decisive_pairs_only_y_in_0_1
+  sample_weights: none
+  no_pos_weight: true
+
+selection_criterion:
+  population: "calibration natural population (all traces: both-correct, both-wrong, single-cand, etc.)"
+  primary: maximize F1@0.5
+  secondary: maximize F1@0.1
+  tertiary: earliest in pre-registered config order
+  choose_main_strong_control_among: [B, C_best, D_best]
+
+primary_comparison:
+  name: "frozen_scalar_minus_calibration_selected_main_strong_control"
+  metric: F1@0.5
+  bootstrap: paired_event_5000
+
+practical_significance_discussion_scale: 0.003  # absolute F1@0.5; NOT a publication gate
+
+dev_splits_status:
+  heldout_eval: "historical research; report consistency only; do not retune"
+  full_dev_phaseB: "historical research; report consistency only; do not retune"
+  confirm: "ALREADY USED; must NOT be renamed as new independent test"
+
+independent_validation:
+  preferred: "INGV ISIDe / EIDA Italia later period e.g. 2021-2022"
+  label: "independent period validation (same region) — NOT cross-region generalization"
+  status_if_unavailable: "INDEPENDENT_VALIDATION_NOT_COMPLETED"

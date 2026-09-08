@@ -1,0 +1,117 @@
+# Independent-period protocol supplement (timestamped)
+# Registered BEFORE generating BSI model predictions / looking at eval metrics.
+
+registered_utc: "2026-09-06T06:10:00Z"
+task: catalog-assisted S-phase candidate reranking
+validation_label: independent_period_validation_same_region_NOT_cross_region
+
+label_contact_disclosure: |
+  BSI QuakeML labels were previously read for catalog download verification and
+  evaluationMode provenance audit. Labels were NOT used for model training,
+  hyperparameter search, threshold selection, candidate generation changes,
+  or prediction post-editing. This formal eval uses labels only after predictions
+  are frozen, except for predetermined window QC that marks FAIL_LABEL_OUTSIDE_WINDOW
+  without adjusting windows.
+
+primary_comparison:
+  name: scalar_minus_C
+  metric: F1@0.5
+  methods: [E_scalar, C_best]
+  C_definition: {sigma_s: 0.25, lambda_history: 4.0, scope: c1_c2_only}
+  scalar: {ckpt: artifacts/results/pairwise_pilot/ckpt_scalar_pairwise_seed42.pt, tau: 0.50}
+  bootstrap: {n: 5000, unit: event, seed: 42}
+
+secondary_comparison_preregistered:
+  name: C_minus_fixed
+  metric: F1@0.5
+  registered_file: artifacts/results/paper_strengthening_v1/locks/SECONDARY_COMPARISON_C_minus_fixed.REGISTERED.json
+
+tail_secondary_metrics_scalar_minus_C:
+  - detected_ae_mae
+  - frac_err_gt_5s
+also_report:
+  - F1@0.1
+  - detected_ae_median
+  - detected_ae_p95
+  - frac_err_gt_1s
+  - frac_err_gt_10s
+  - miss_rate
+  - fixes
+  - breaks
+  - net_fixes
+forbidden: |
+  Do not replace primary endpoint with MAE because MAE looked better on development data.
+  Do not claim equivalence solely from CI crossing zero.
+  Do not claim material F1 gain solely from CI barely above zero.
+  Practical discussion scale for abs ΔF1@0.5 remains 0.003 (not a gate).
+
+sampling:
+  seed_material: "paper_strengthening_v1_independent_period_v1"
+  hash: sha256  # NOT Python built-in hash
+  target_n_events: 2000
+  max_records: 30000
+  max_manual_s_per_event: 8
+  eligible_event_rules:
+    - preferred_origin_present
+    - magnitude_M_ge_1.5_when_available_else_keep_if_manual_S_present
+    - at_least_one_manual_S_pick_with_waveformID_net_sta_and_time
+  event_selection: |
+    Among eligible events, rank by sha256(seed_material|"event"|event_id) ascending;
+    take first 2000.
+  record_selection: |
+    For each selected event, take manual S picks with phaseHint starting with S and
+    evaluationMode==manual. Rank by sha256(seed_material|"rec"|event_id|net|sta|pick_time|pick_public_id);
+    keep first max_manual_s_per_event. If total records would exceed max_records, truncate
+    by global sha256 rank across remaining records (deterministic).
+  forbidden_filters:
+    - model_confidence
+    - SNR
+    - download_ease_replacement
+    - closest_to_prediction_label_choice
+
+window_rule:
+  length_s: 120.0
+  pre_s_margin_s: 40.0
+  definition: |
+    base_tau_s = frozen picker_train MLP(distance_km, source_depth_km, station_elevation_m).
+    If MLP inputs missing: fallback_tau_s = max(distance_km,0)/3.5 + 5.0.
+    trace_start = origin_time + tau_s - pre_s_margin_s.
+    trace_end = trace_start + length_s.
+    Resample to 100 Hz after download if needed.
+  no_manual_centering: true
+  label_outside_window: FAIL_LABEL_OUTSIDE_WINDOW_counted_as_eval_failure_not_silent_drop
+
+download:
+  endpoint: https://webservices.ingv.it/fdsnws/dataselect/1/query
+  station_endpoint: https://webservices.ingv.it/fdsnws/station/1/query
+  proxy: bypass_process_local_only
+  tls_verify: true
+  channels: "HH?,EH?,HN?,BH?"
+  prefer_order: ["HH", "EH", "BH", "HN"]
+  components_required: [E, N, Z]
+  retries: 4
+  concurrency: 8
+
+candidate_generation:
+  stead: pretrained_seisbench_stead
+  ida_ckpt: artifacts/models/stage6/phasenet_ida_full_seed42/checkpoints/best.pt
+  peak_extract: {k: 10, min_distance: 50, min_prominence: 0.05, min_probability: 0.1}
+  union: {stead_k: 5, ida_k: 5, max_union: 10, dedup_s: 0.05}
+  fixed_score: {lw: 0.5, lh: 2.0, lp: 0.0}
+  history: frozen_picker_train_store_no_update
+  history_miss_fallback: global_residual_lh_zero_as_registered
+
+methods_A_to_E: [A_fixed, B_resid, C_best, D_best, E_scalar]
+D_model: artifacts/models/paper_strengthening_v1/linear_pairwise_SELECTED.json
+
+independence:
+  historical_data_time_range: "INSTANCE-based project splits origin times ~2016-11 to 2020-01"
+  new_period: "2021-01-01 to 2022-12-31"
+  checks:
+    - no_event_id_overlap_with_train_cal_heldout_phaseB_confirm_lists_when_comparable
+    - time_location_dedup_against_historical_origins
+  gaps_to_record:
+    - STEAD pretrained training corpus exact event overlap cannot be fully audited from this repo alone
+
+output_root: /data/yehang/Earthquake_paper_strengthening_v1/independent_period
+artifacts_symlink: artifacts/results/paper_strengthening_v1/independent_period
